@@ -4,7 +4,7 @@ echo <<<END
 <body bgcolor="gray">
 
     <h1>Accueil</h1>
-    <h1>Vous avez d�ja un compte? Connectez-vous</h1>
+    <h1>Vous avez deja un compte? Connectez-vous</h1>
     <form action="">
         <div>
             <label for="idnom">nom d'utilisateur</label>
