@@ -29,7 +29,7 @@
     </form>
     
     <h1>Pas encore de compte? Inscrivez-vous</h1>
-    <a href="eco_home_inscription.html">Inscription</a>
+    <a href="vue/inscription.php">Inscription</a>
 
 </body>
 
