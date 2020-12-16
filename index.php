@@ -1,5 +1,5 @@
 <?php
-	echo <<< END
+	echo <<<END
 
 <!DOCTYPE html>
 
@@ -13,7 +13,7 @@
 <body bgcolor="gray">
 
     <h1>Accueil</h1>
-    <h1>Vous avez déja un compte? Connectez-vous</h1>
+    <h1>Vous avez dï¿½ja un compte? Connectez-vous</h1>
     <form action="">
         <div>
             <label for="idnom">nom d'utilisateur</label>
@@ -36,3 +36,4 @@
 </html>
 
 END;
+;
