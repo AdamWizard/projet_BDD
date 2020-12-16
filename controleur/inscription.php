@@ -1,32 +1,17 @@
 <?php
 
-/**
- * Le contrôleur :
- * - définit le contenu des variables à afficher
- * - identifie et appelle la vue
- */ 
-
-/**
- * Contrôleur Principal
- */
-
-// si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
-    $function = "accueil";
+    $function = "afficher";
 } else {
     $function = $_GET['fonction'];
 }
 
 switch ($function) {
     
-    case 'accueil':
+    case 'afficher':
         //affichage de l'accueil
-        if(!(isset($_SESSION['id_connect']))){
-            $vue = "connexion";
-            $title = "Connexion";
-        }else{
-            //tableau de bord
-        }
+        $vue = "inscription";
+        $title = "Inscription";
         break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
