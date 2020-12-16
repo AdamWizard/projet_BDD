@@ -1,14 +1,34 @@
 <?php
 	echo <<< END
 
+<!DOCTYPE html>
+
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Inscription</title>
+</head>
+
 
 <body bgcolor="gray">
 
     <h1>Inscrivez-vous</h1>
     <form action="">
+
         <div>
-            <label for="idnom">nom d'utilisateur</label>
-            <input name="nom d'utilisateur" type="text" id="idnom" placeholder="Jean-michel exemple" required>
+            <label for="idprenomnom">prenom</label>
+            <input name="prenom" type="text" id="idprenom" placeholder="Jean-michel" required>
+        </div>
+
+        <div>
+            <label for="idnom">nom</label>
+            <input name="nom" type="text" id="idnom" placeholder="Exemple" required>
+        </div>
+
+        <div>
+            <label for="iddate">Date de naissance</label>
+            <input name="Date de naissance" type="date" if="iddate" placeholder="04/12/2000" required>
         </div>
 
         <div>
@@ -17,8 +37,8 @@
         </div>
 
         <div>
-            <label for="iddate">Date de naissance</label>
-            <input name="Date de naissance" type="date" if="iddate" required>
+            <label for="idtel">tel</label>
+            <input name="numero de telephone" type="tel" id="idtel" placeholder="0669696969" required pattern="[0-9]{10}">
         </div>
 
         <div>
