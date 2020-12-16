@@ -9,7 +9,7 @@
 /**
  * Contrôleur Principal
  */
-
+include("modele/connexion.php");
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
     $function = "accueil";
@@ -24,7 +24,16 @@ switch ($function) {
         if(!(isset($_SESSION['id_connect']))){
             $vue = "connexion";
             $title = "Connexion";
+            if(isset($_POST['mail']) && isset($_POST['mdp'])){
+                $idUser = connexion($_POST['mail'],$_POST['mdp']);
+                if($idUser!=0){
+                    $_SESSION['id_connect']=$idUser;
+                    echo "OUI";
+                    //tableau de bord
+                }
+            }
         }else{
+            echo "OUI";
             //tableau de bord
         }
         break;

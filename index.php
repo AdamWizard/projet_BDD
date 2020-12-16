@@ -15,7 +15,7 @@ ini_set('display_errors', 1);
 include("controleur/fonctions.php");
 // Appel des fonctions liées à l'affichage
 include("vue/fonctions.php");
-
+session_start();
 // On identifie le contrôleur à appeler dont le nom est contenu dans cible passé en GET
 if(isset($_GET['cible']) && !empty($_GET['cible'])) {
     // Si la variable cible est passé en GET
