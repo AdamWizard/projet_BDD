@@ -28,12 +28,14 @@ switch ($function) {
                 $idUser = connexion($_POST['mail'],$_POST['mdp']);
                 if($idUser!=0){
                     $_SESSION['id_connect']=$idUser;
-                    echo "OUI";
+                    $vue = "tableau_de_bord";
+                    $title = "Tableau";
                     //tableau de bord
                 }
             }
         }else{
-            echo "OUI";
+            $vue = "tableau_de_bord";
+            $title = "Tableau";
             //tableau de bord
         }
         break;
