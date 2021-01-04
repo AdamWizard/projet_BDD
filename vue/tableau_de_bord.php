@@ -5,7 +5,7 @@ echo <<<END
 
     <h1>Tableau de bord</h1>
     
-
+    <a href="index.php?cible=maison&fonction=formulaire">Creer une maison</a>
 </body>
 
 
