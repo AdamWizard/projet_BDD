@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Eco-home</title>
+</head>
+
+<body bgcolor="grey">
+
+    <h1>Menu des maisons</h1>
+
+    <maison>
+        <b>MAISON 1</b>
+        <input type="submit" value="Ajouter un appartement" style="width:200px">
+
+        <ap>
+            Appartement 1
+
+            <input type="submit" value="Ajouter un équipement" style="width:150px">
+            <eq>Réfrigérateur</eq>
+            <eq>Machine à laver</eq>
+            <eq>Télévision</eq>
+        </ap>
+
+        <ap>
+            Appartement 2
+            <input type="submit" value="Ajouter un équipement" style="width:150px">
+            <eq>Machine à laver</eq>
+
+        </ap>
+
+        <ap>
+            Appartement 3
+            <input type="submit" value="Ajouter un équipement" style="width:150px">
+        </ap>
+
+    </maison>
+    
+    <style>
+        maison {
+            border: 5px solid teal;
+            padding: .5em;
+            margin: 30px;
+        }
+
+        ap {
+            border: 2px solid black;
+            padding: 15px;
+            margin: 10px;
+        }
+
+        eq {
+            border: 2px solid black;
+            padding: .5em;
+            margin-left: 10px;
+            margin-right: 50px;
+            margin-top:10px;
+            margin-bottom:5px;
+        }
+
+        ap {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+        }
+
+        maison {
+            display : flex;
+            flex-direction:column;
+            list-style: none;
+        }
+
+    </style>
+   
+
+
+</body>
+
+</html>
