@@ -9,6 +9,7 @@
 /**
  * Contrôleur maison
  */
+include("modele/nouvelleMaison.php");
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
@@ -25,8 +26,14 @@ switch ($function) {
             $title = "Connexion";
         }else{
             //test si les champs sont set
-            $vue = "ajout_maison";
-            $title = "Ajout maison";
+            if(isset($_POST['nomMaison']) && isset($_POST['codeP']) && isset($_POST['nomRue']) && isset($_POST['numero']) && isset($_POST['evaluation'])){
+                nouvelle_maison($_POST['nomMaison'], $_POST['codeP'], $_POST['nomRue'], $_POST['numero'], $_POST['evaluation'],$_SESSION['id_connect']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "ajout_maison";
+                $title = "Ajout maison";
+            }
         }
         break;
         
