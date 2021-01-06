@@ -5,7 +5,7 @@ echo <<<END
 
     <h1>Accueil</h1>
     <h1>Vous avez deja un compte ? Connectez-vous</h1>
-    <form method="POST" action="">
+    <form method="POST" action="./index.php">
         <div>
             <label for="idMail">email</label>
             <input name="mail" type="text" id="idMail">

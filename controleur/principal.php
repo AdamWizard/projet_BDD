@@ -18,7 +18,11 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 }
 
 switch ($function) {
-    
+    case 'deconnexion':
+        unset($_SESSION['id_connect']);
+        $vue = "connexion";
+        $title = "Connexion";
+        break;
     case 'accueil':
         //affichage de l'accueil
         if(!(isset($_SESSION['id_connect']))){

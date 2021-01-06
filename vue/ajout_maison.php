@@ -3,14 +3,15 @@ include("modele/codePostaux.php");
 $codePostaux = listeCodes();
 echo <<<END
 <h1>FORMULAIRE</h1>
+<a href="index.php?cible=principal&fonction=deconnexion">Se deconnecter</a>
 <form method="POST" action="">
     <div>
-    <label for="nomMaison">Nom de la maison</label>
+    <label for="idnomMaison">Nom de la maison</label>
     <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
     </div>
 
     <div>
-        <label for="codeP-select">Code Postal</label>
+        <label for="idCodeP">Code Postal</label>
         <select name="codeP" id="idCodeP">
 END;
 ;
@@ -24,6 +25,5 @@ echo <<<END
         <button type="reset">valeurs par defaut</button>
         <button type="submit">Creer</button>
     </form>
-    <a href="index.php">Connexion</a>
 END;
 ;

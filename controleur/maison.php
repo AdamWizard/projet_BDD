@@ -20,10 +20,14 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 switch ($function) {
     
     case 'formulaire':
-        //affichage de l'accueil
-        //test si les champs sont set
-        $vue = "ajout_maison";
-        $title = "Ajout maison";
+        if(!(isset($_SESSION['id_connect']))){
+            $vue = "connexion";
+            $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            $vue = "ajout_maison";
+            $title = "Ajout maison";
+        }
         break;
         
     default:
