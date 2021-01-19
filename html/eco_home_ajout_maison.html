@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Inscription</title>
+</head>
+
+<body bgcolor="gray">
+
+    <h1>Ajout d'une maison</h1>
+    <form action="">
+
+        <div>
+            <label for="idadresse">adresse</label>
+            <input name="adresse" type="text" id="idadresse" placeholder="42 avenue du général Leclerc" required>
+        </div>
+
+        <div>
+            <label for="idville">ville</label>
+            <input name="ville" type="text" id="idville" placeholder="Saint Quentin" required>
+        </div>
+
+        <div>
+            <label for="idcodepostal">Code postal</label>
+            <input name="Code postal" type="number" if="idcodepostal" placeholder="02100" required>
+        </div>
+
+        <div>
+            <label for="idmail">adresse mail</label>
+            <input name="adresse mail" type="email" id="idmail" placeholder="JM.exemple@gmail.com" required>
+        </div>
+
+        <div>
+            <label for="idtel">tel</label>
+            <input name="numero de telephone" type="tel" id="idtel" placeholder="0669696969" required pattern="[0-9]{10}">
+        </div>
+
+        <div>
+            <label for="idmdp">mot de passe</label>
+            <input name="mot de passe" type="password" id="idmdp" required>
+        </div>
+
+        <div>
+            <label for="idmdp2">valider le mot de passe</label>
+            <input type="password" id="idmdp2" required>
+        </div>
+
+        <button type="reset">valeurs par défaut</button>
+        <button type="submit">Inscription</button>
+    </form>
+    <a href="index.php">AjoutMaison</a>
+
+</body>
+
+</html>

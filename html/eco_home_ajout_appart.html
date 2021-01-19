@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body bgcolor="gray">
+
+    <h1>Inscrivez-vous</h1>
+    <form method="POST" action="">
+
+        <div>
+            <label for="idprenomnom">prenom</label>
+            <input name="prenom" type="text" id="idprenom" placeholder="Jean-michel" maxlength="50" required>
+        </div>
+
+        <div>
+            <label for="idnom">nom</label>
+            <input name="nom" type="text" id="idnom" placeholder="Exemple" maxlength="50" required>
+        </div>
+
+        <div>
+            <label for="iddate">Date de naissance</label>
+            <input name="dateNaiss" type="date" if="iddate" placeholder="04/12/2000" required>
+        </div>
+
+        <div>
+            <label for="idmail">adresse mail</label>
+            <input name="mail" type="email" id="idmail" placeholder="JM.exemple@gmail.com" maxlength="50" required>
+        </div>
+
+        <div>
+            <label for="idtel">tel</label>
+            <input name="tel" type="tel" id="idtel" placeholder="0669696969" maxlength="10" required pattern="[0-9]{10}">
+        </div>
+
+        <div>
+            <label for="idmdp">mot de passe</label>
+            <input name="mdp" type="password" id="idmdp" maxlength="50" required>
+        </div>
+
+        <div>
+            <label for="idmdp2">valider le mot de passe</label>
+            <input name="mdp2" type="password" id="idmdp2" maxlength="50" required>
+        </div>
+
+        <div>
+            <label for="genre-select">Genre</label>
+            <select name="genre" id="idGenre">
+                <option value="1">Homme</option>
+                <option value="2">Femme</option>
+                <option value="3">Autre</option>
+            </select>
+        </div>
+
+        <button type="reset">valeurs par defaut</button>
+        <button type="submit">Inscription</button>
+    </form>
+    <a href="index.php">AjoutAppartement</a>
+
+</body>
+</html>

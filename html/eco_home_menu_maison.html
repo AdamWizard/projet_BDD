@@ -1,48 +1,141 @@
 ﻿<!DOCTYPE html>
-
-
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>Eco-home</title>
 </head>
 
+<!--BOUTTON DECONEXION-->
+<form action="href=index.php?cible=principal&fonction =deconnexion">
+    <input type="submit" style="background-color:palevioletred; position:absolute; right : 0 ;border-color:black" value="Se déconnecter" />
+</form>
+
 <body bgcolor="grey">
 
     <h1>Menu des maisons</h1>
 
-    <maison>
-        <b>MAISON 1</b>
-        <input type="submit" value="Ajouter un appartement" style="width:200px">
+    <form action="eco_home_ajout_maison.html">
+        <input type="submit" style="background-color:lightgray" value="Ajouter une maison" />
+    </form>
 
+    <!--EXEMPLE DE MAISON-->
+    <maison>
+        <b>MAISON [adresse de la maison 1]</b>
+
+        <form action="eco_home_ajout_appart.html">
+            <input type="submit" style="background-color:lightgray" value="Ajouter un appartement" />
+        </form>
+
+        <!--BOUTON POUR SUPPRIMER LA MAISON-->
+        <form action="">
+            <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+        </form>
+
+        <!-- appart -->
         <ap>
             Appartement 1
 
-            <input type="submit" value="Ajouter un équipement" style="width:150px">
-            <eq>Réfrigérateur</eq>
-            <eq>Machine à laver</eq>
-            <eq>Télévision</eq>
+
+            <form action="eco_home_ajout_equipement.html">
+                <input type="submit" style="background-color:lightgray" value="Ajouter un équipement" />
+            </form>
+
+            <!--BOUTON POUT SUPPRIMER L APPART-->
+            <form action="">
+                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+            </form>
+
+            <eq>
+                Réfrigérateur
+                <br>
+
+                <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
+                <form action="">
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet équipement" />
+                </form>
+
+                <br>
+                [consomation][substance consomée];
+                [émission][substance émise]
+            </eq>
+
+            <eq>
+                Machine à laver
+                <br>
+                <form action="">
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet équipement" />
+                </form>
+
+                [consomation][substance consomée];
+                [émission][substance émise]
+            </eq>
+
+            <eq>
+                Télévision
+                <br>
+                <form action="">
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet équipement" />
+                </form>
+
+                [consomation][substance consomée];
+                [émission][substance émise]
+            </eq>
+
         </ap>
 
         <ap>
             Appartement 2
-            <input type="submit" value="Ajouter un équipement" style="width:150px">
-            <eq>Machine à laver</eq>
 
+            <form action="eco_home_ajout_equipement.html">
+                <input type="submit" style="background-color:lightgray" value="Ajouter un équipement" />
+            </form>
+
+            <form action="">
+                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
+            </form>
         </ap>
 
         <ap>
             Appartement 3
-            <input type="submit" value="Ajouter un équipement" style="width:150px">
+
+
+            <form action="eco_home_ajout_equipement.html">
+                <input type="submit" style="background-color:lightgray" value="Ajouter un équipement" />
+            </form>
+
+            <!--BOUTON POUT SUPPRIMER L APPART-->
+            <form action="">
+                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
+            </form>
+
+            <eq>
+                Réfrigérateur
+                <br>
+
+                <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
+                <form action="">
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet équipement" />
+                </form>
+
+                <br>
+                [consomation][substance consomée];
+                [émission][substance émise]
+            </eq>
+
         </ap>
 
     </maison>
-    
+
     <style>
         maison {
             border: 5px solid teal;
             padding: .5em;
             margin: 30px;
+        }
+
+        btnsupprma {
+            background-color: palevioletred;
+            border-color: black
         }
 
         ap {
@@ -56,8 +149,8 @@
             padding: .5em;
             margin-left: 10px;
             margin-right: 50px;
-            margin-top:10px;
-            margin-bottom:5px;
+            margin-top: 10px;
+            margin-bottom: 5px;
         }
 
         ap {
@@ -67,13 +160,12 @@
         }
 
         maison {
-            display : flex;
-            flex-direction:column;
+            display: flex;
+            flex-direction: column;
             list-style: none;
         }
-
     </style>
-   
+
 
 
 </body>
