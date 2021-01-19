@@ -4,7 +4,7 @@
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Inscription</title>
+    <title>Ajout d'une maison</title>
 </head>
 
 <body bgcolor="gray">
@@ -13,8 +13,20 @@
     <form action="">
 
         <div>
+            <label for="idnommaison">nom de la maison</label><br />
+            <input name="nommaison" type="text" id="idnommaison" placeholder="maison 1" required>
+        </div>
+
+        <br />
+
+        <div>
             <label for="idadresse">adresse</label>
-            <input name="adresse" type="text" id="idadresse" placeholder="42 avenue du général Leclerc" required>
+            <input name="adresse" type="text" id="idadresse" placeholder="42" required>
+        </div>
+
+        <div>
+            <label for="idruee">rue</label>
+            <input name="rue" type="text" id="idrue" placeholder="Avenue du général Leclerc" required>
         </div>
 
         <div>
@@ -27,30 +39,10 @@
             <input name="Code postal" type="number" if="idcodepostal" placeholder="02100" required>
         </div>
 
-        <div>
-            <label for="idmail">adresse mail</label>
-            <input name="adresse mail" type="email" id="idmail" placeholder="JM.exemple@gmail.com" required>
-        </div>
-
-        <div>
-            <label for="idtel">tel</label>
-            <input name="numero de telephone" type="tel" id="idtel" placeholder="0669696969" required pattern="[0-9]{10}">
-        </div>
-
-        <div>
-            <label for="idmdp">mot de passe</label>
-            <input name="mot de passe" type="password" id="idmdp" required>
-        </div>
-
-        <div>
-            <label for="idmdp2">valider le mot de passe</label>
-            <input type="password" id="idmdp2" required>
-        </div>
-
         <button type="reset">valeurs par défaut</button>
-        <button type="submit">Inscription</button>
+        <button type="submit">Ajouter la maison</button>
     </form>
-    <a href="index.php">AjoutMaison</a>
+    <a href="MenuMaisons.php">Retour au menu des maisons</a>
 
 </body>
 
