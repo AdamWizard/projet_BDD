@@ -1,6 +1,4 @@
 <?php
-include("modele/codePostaux.php");
-$codePostaux = listeCodes();
 echo <<<END
 <head>
 		<style>
@@ -32,7 +30,7 @@ echo <<<END
 			#container{
 				padding-top:10px;
 				width: 600px;
-				height: 350px;
+				height: 100px;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
@@ -64,9 +62,7 @@ echo <<<END
 
 	<div id="header">
 	
-	
-	
-		<h1 id="titre">Création d'une maison</h1>
+		<h1 id="titre">Ajout d'un appartement</h1>
 		
 		<a id="deco" href="index.php?cible=principal&fonction=deconnexion"><img id="deco" src="deco.png" title="Se déconnecter"></a>
 		
@@ -75,38 +71,16 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="">
+<form method="POST" action="tableau_de_bord.php">
     <div>
-            <label for="idnomMaison">Nom de la maison</label>
-            <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
+            <label for="idNumAppart">Numero de l'appartement</label>
+            <input name="NumAppart" type="number" id="idNumAppart" required>
+			
+            <input name="Valide" type="submit" id="idValide" value="Valider"required>
     </div>
-    <div>
-            <label for="idCodeP">Code Postal</label>
-            <select name="codeP" id="idCodeP">
-END;
-;
-while($ligne = $codePostaux->fetch_assoc()){
-    echo "<option value=".$ligne['code_postal'].">".$ligne['code_postal']."</option>";
-}
-echo <<<END
-        </select>
-    </div>
-    <div>
-            <label for="idRue">Nom de rue</label>
-            <input name="nomRue" type="text" id="idRue" maxlength="50" required>
-    </div>
-    <div>
-            <label for="idNumero">Numero</label>
-            <input name="numero" type="number" id="idNumero" maxlength="50" required>
-    </div>
-    <div>
-    <label for="idEval">Description de l'etat</label>
-    <input name="evaluation" type="text" id="idEval" maxlength="50" required>
-    </div>
-    <button type="reset">Valeurs par defaut</button>
-    <button type="submit">Créer</button>
-    </form>
+</form>
+	
     <a href="index.php">Annuler (revenir au tableau de bord)</a>
-</div>
+	
 END;
 ;

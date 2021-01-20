@@ -1,6 +1,4 @@
 <?php
-include("modele/codePostaux.php");
-$codePostaux = listeCodes();
 echo <<<END
 <head>
 		<style>
@@ -64,9 +62,7 @@ echo <<<END
 
 	<div id="header">
 	
-	
-	
-		<h1 id="titre">Création d'une maison</h1>
+		<h1 id="titre">Ajout d'un appareil</h1>
 		
 		<a id="deco" href="index.php?cible=principal&fonction=deconnexion"><img id="deco" src="deco.png" title="Se déconnecter"></a>
 		
@@ -75,38 +71,21 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="">
+<form method="POST" action="tableau_de_bord.php">
     <div>
-            <label for="idnomMaison">Nom de la maison</label>
-            <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
+            <label for="idNomEquipement">Nom de l'équipement</label>
+            <input name="NomEquipement" type="text" id="idNomEquipement" required>
+			
+            <label for="idDateDebut">Date de début d'utilisation</label>
+            <input name="DateDebut" type="date" id="idDateDebut" required>
+			
+            <input name="Valide" type="submit" id="idValide" value="Valider"required>
     </div>
-    <div>
-            <label for="idCodeP">Code Postal</label>
-            <select name="codeP" id="idCodeP">
-END;
-;
-while($ligne = $codePostaux->fetch_assoc()){
-    echo "<option value=".$ligne['code_postal'].">".$ligne['code_postal']."</option>";
-}
-echo <<<END
-        </select>
-    </div>
-    <div>
-            <label for="idRue">Nom de rue</label>
-            <input name="nomRue" type="text" id="idRue" maxlength="50" required>
-    </div>
-    <div>
-            <label for="idNumero">Numero</label>
-            <input name="numero" type="number" id="idNumero" maxlength="50" required>
-    </div>
-    <div>
-    <label for="idEval">Description de l'etat</label>
-    <input name="evaluation" type="text" id="idEval" maxlength="50" required>
-    </div>
-    <button type="reset">Valeurs par defaut</button>
-    <button type="submit">Créer</button>
-    </form>
+</form>
+
+	
+	
     <a href="index.php">Annuler (revenir au tableau de bord)</a>
-</div>
+	
 END;
 ;
