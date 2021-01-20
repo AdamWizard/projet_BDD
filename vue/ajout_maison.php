@@ -6,12 +6,12 @@ echo <<<END
 <a href="index.php?cible=principal&fonction=deconnexion">Se deconnecter</a>
 <form method="POST" action="">
     <div>
-            <label for="idnommaison">nom de la maison</label><br />
-            <input name="nommaison" type="text" id="idnommaison" placeholder="maison 1" maxlength="50" required>
+            <label for="idnomMaison">Nom de la maison</label>
+            <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
     </div>
-    <div
-            <label for="idCode">Code postal</label>
-            <input name="Code" type="number" if="idCode" placeholder="02100" required>
+    <div>
+            <label for="idCodeP">Code Postal</label>
+            <select name="codeP" id="idCodeP">
 END;
 ;
 while($ligne = $codePostaux->fetch_assoc()){
@@ -21,12 +21,12 @@ echo <<<END
         </select>
     </div>
     <div>
-            <label for="idRue">rue</label>
-            <input name="rue" type="text" id="idRue" placeholder="Avenue du général Leclerc" required>
+            <label for="idRue">Nom de rue</label>
+            <input name="nomRue" type="text" id="idRue" maxlength="50" required>
     </div>
     <div>
-            <label for="idNumero">numéro</label>
-            <input name="numero" type="text" id="idNumero" placeholder="42" required>
+            <label for="idNumero">Numero</label>
+            <input name="numero" type="number" id="idNumero" maxlength="50" required>
     </div>
     <div>
     <label for="idEval">Description de l'etat</label>
