@@ -35,6 +35,6 @@ echo <<<END
     <button type="reset">valeurs par defaut</button>
     <button type="submit">Creer</button>
     </form>
-    <a href="Menu_maisons.php">Annuler (revenir au menu des maisons)</a>
+    <a href="index.php">Annuler (revenir au menu des maisons)</a>
 END;
 ;
