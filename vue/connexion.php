@@ -12,6 +12,7 @@ echo <<<END
 				display: inline;
 			}
 			#container{
+				padding-top:10px;
 				width: 600px;
 				height: 350px;
 				margin: auto;

@@ -8,10 +8,12 @@
 				text-align:center;
 			}
 			#titre{
+				
 				text-align:center;
 				display: inline;
 			}
 			#container{
+				padding-top:10px;
 				width: 600px;
 				height: 530px;
 				margin: auto;

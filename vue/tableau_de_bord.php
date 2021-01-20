@@ -8,6 +8,7 @@ echo <<<END
 				text-align:center;
 			}
 			#titre{
+				margin-left:100px;
 				text-align:center;
 				display: inline;
 			}
