@@ -75,7 +75,7 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="">
+<form method="POST" action="tableau_de_bord.php">
     <div>
             <label for="idnomMaison">Nom de la maison</label>
             <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
