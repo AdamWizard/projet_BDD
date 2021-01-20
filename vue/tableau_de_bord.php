@@ -59,6 +59,8 @@ while($maison = $maisons->fetch_assoc()){
     $numMaison = $maison['numero_maison'];
     $rueMaison = $maison['rue'];
     $cpMaison = $maison['code_postal'];
+    $idMaison = $maison['id_maison'];
+    $appartements = listeAppartsMaison($idMaison);
     echo <<<END
     <maison>
         <b>$nomMaison</b>
@@ -72,99 +74,68 @@ while($maison = $maisons->fetch_assoc()){
         <form action="">
             <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
         </form>
-
-        <!-- appart -->
-        <ap>
-            Appartement 1
-
-
-            <form action="eco_home_ajout_equipement.html">
-                <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-            </form>
-
-            <!--BOUTON POUT SUPPRIMER L APPART-->
-            <form action="">
-                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
-            </form>
-
-            <eq>
-                Refrigerateur
-                <br>
-
-                <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
+END;
+        while($appart = $appartements->fetch_assoc()){
+            $idAppart = $appart['id_appartement'];
+            $numAppart = $appart['numero_appart'];
+            $degCitoyennete = $appart['citoyLib'];
+            $typeAppart = $appart['typeApLib'];
+            $degSecu = $appart['secuLib'];
+            $appareils = listeAppareilsAppart($idAppart);
+            echo <<<END
+            <!-- appart -->
+            <ap>
+                <p>Appartement numero : $numAppart</p>
+                <p>Type : $typeAppart</p>
+                <p>Degre de securite : $degSecu</p>
+                <p>Degre de citoyennete : $degCitoyennete</p>
+                <form action="eco_home_ajout_equipement.html">
+                    <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
                 </form>
 
-                <br>
-                [consomation][substance consomee];
-                [emission][substance emise]
-            </eq>
-
-            <eq>
-                Machine a laver
-                <br>
+                <!--BOUTON POUT SUPPRIMER L APPART-->
                 <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
                 </form>
+END;
+        while($appareil = $appareils->fetch_assoc()){
+            $id_appareil = $appareil['id_appareil'];
+            $nom_appareil = $appareil['nom_appareil'];
+            $demo = $appareil['demo'];
+            $typeAppareil = $appareil['libelle'];
 
-                [consomation][substance consomee];
-                [emission][substance emise]
-            </eq>
+            echo <<<END
 
-            <eq>
-                Television
-                <br>
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
-                </form>
+                <eq>
+                    Nom de l'appareil : $nom_appareil
+                    <br>
+                    Type : $typeAppareil
+                    <br>
+END;
+            if($demo != NULL){
+                echo <<<END
+                    <a href="$demo">Demonstration</a>
+END;
+            }
+                    
+            
+            echo <<<END
+                    <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
+                    <form action="">
+                        <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
+                    </form>
 
-                [consomation][substance consomee];
-                [emission][substance emise]
-            </eq>
-
-        </ap>
-
-        <ap>
-            Appartement 2
-
-            <form action="eco_home_ajout_equipement.html">
-                <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-            </form>
-
-            <form action="">
-                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
-            </form>
-        </ap>
-
-        <ap>
-            Appartement 3
-
-
-            <form action="eco_home_ajout_equipement.html">
-                <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-            </form>
-
-            <!--BOUTON POUT SUPPRIMER L APPART-->
-            <form action="">
-                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
-            </form>
-
-            <eq>
-                Refrigerateur
-                <br>
-
-                <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
-                </form>
-
-                <br>
-                [consomation][substance consomee];
-                [emission][substance emise]
-            </eq>
-
-        </ap>
+                    <br>
+                    [consomation][substance consomee];
+                    [emission][substance emise]
+                </eq>
+END;
+        }
+        echo <<<END
+            </ap>
+END;
+        }
+        echo <<<END
     </maison>
 END;
 }
@@ -174,6 +145,7 @@ END;
     
     
 echo <<<END
+
     <style>
         maison {
             border: 5px solid teal;
@@ -214,7 +186,5 @@ echo <<<END
         }
     </style>
 </body>
-
-
 END;
 ;

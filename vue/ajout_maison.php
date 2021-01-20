@@ -75,7 +75,7 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="tableau_de_bord.php">
+<form method="POST" action="">
     <div>
             <label for="idnomMaison">Nom de la maison</label>
             <input name="nomMaison" type="text" id="idnomMaison" maxlength="50" required>
@@ -106,11 +106,7 @@ echo <<<END
     <button type="reset">Valeurs par defaut</button>
     <button type="submit">Créer</button>
     </form>
-<<<<<<< HEAD
-    <a href="index.php">Annuler (revenir au menu des maisons)</a>
-=======
     <a href="index.php">Annuler (revenir au tableau de bord)</a>
 </div>
->>>>>>> 6997763676994309e8f6640221d87a9b2504c9a3
 END;
 ;
