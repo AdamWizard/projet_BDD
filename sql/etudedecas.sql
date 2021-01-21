@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 20 Janvier 2021 à 22:29
+-- Généré le :  Mer 20 Janvier 2021 à 15:20
 -- Version du serveur :  10.1.47-MariaDB-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `etudedecas`
 --
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Appareil`
@@ -35,7 +35,7 @@ CREATE TABLE `Appareil` (
   `id_type_appareil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Appartement`
@@ -50,16 +50,6 @@ CREATE TABLE `Appartement` (
   `id_maison` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Contenu de la table `Appartement`
---
-
-INSERT INTO `Appartement` (`id_appartement`, `numero_appart`, `id_deg_cit`, `id_type_appart`, `id_secu`, `id_maison`) VALUES
-(1, 12, 1, 1, 1, 17),
-(2, 13, 1, 3, 1, 17),
-(3, 14, 1, 5, 1, 16);
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Consommer`
@@ -71,7 +61,7 @@ CREATE TABLE `Consommer` (
   `Conso` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Degre_citoyennete`
@@ -89,7 +79,6 @@ CREATE TABLE `Degre_citoyennete` (
 INSERT INTO `Degre_citoyennete` (`id_deg_cit`, `libelle`) VALUES
 (1, 'Indefini');
 
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Degre_isolation`
@@ -107,7 +96,6 @@ CREATE TABLE `Degre_isolation` (
 INSERT INTO `Degre_isolation` (`id_deg_iso`, `libelle`) VALUES
 (1, 'Indefini');
 
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Degre_securite`
@@ -118,14 +106,7 @@ CREATE TABLE `Degre_securite` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Contenu de la table `Degre_securite`
---
 
-INSERT INTO `Degre_securite` (`id_secu`, `libelle`) VALUES
-(1, 'Indefini');
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Departement`
@@ -145,7 +126,6 @@ INSERT INTO `Departement` (`nom_departement`, `nom_region`) VALUES
 ('Indre et Loire', 'Centre val de Loire'),
 ('Loiret', 'Centre val de Loire');
 
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Emplacement`
@@ -157,7 +137,7 @@ CREATE TABLE `Emplacement` (
   `id_piece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Genre`
@@ -177,7 +157,7 @@ INSERT INTO `Genre` (`id_genre`, `libelle`) VALUES
 (2, 'Femme'),
 (3, 'Autre');
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Louer`
@@ -191,7 +171,6 @@ CREATE TABLE `Louer` (
   `nb_habitants` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Maison`
@@ -222,10 +201,9 @@ INSERT INTO `Maison` (`id_maison`, `nom_maison`, `evaluation`, `rue`, `numero_ma
 (13, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (14, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (15, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
-(16, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
-(17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1);
+(16, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1);
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Piece`
@@ -238,7 +216,7 @@ CREATE TABLE `Piece` (
   `id_type_piece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Posseder`
@@ -257,10 +235,9 @@ CREATE TABLE `Posseder` (
 
 INSERT INTO `Posseder` (`id_utilisateur`, `id_maison`, `date_fin`, `date_debut`) VALUES
 (4, 15, NULL, '0000-00-00'),
-(4, 16, NULL, '2021-01-06'),
-(4, 17, NULL, '2021-01-20');
+(4, 16, NULL, '2021-01-06');
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `PossederAppareil`
@@ -271,7 +248,7 @@ CREATE TABLE `PossederAppareil` (
   `id_appareil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Produire`
@@ -283,7 +260,7 @@ CREATE TABLE `Produire` (
   `Conso` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Region`
@@ -301,7 +278,6 @@ INSERT INTO `Region` (`nom_region`) VALUES
 ('Bretagne'),
 ('Centre val de Loire');
 
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Ressource`
@@ -316,7 +292,7 @@ CREATE TABLE `Ressource` (
   `valeur_ideale` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Substance`
@@ -331,7 +307,7 @@ CREATE TABLE `Substance` (
   `valeur_ideale` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Type_appareil`
@@ -342,7 +318,7 @@ CREATE TABLE `Type_appareil` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Type_appartement`
@@ -353,18 +329,7 @@ CREATE TABLE `Type_appartement` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Contenu de la table `Type_appartement`
---
 
-INSERT INTO `Type_appartement` (`id_type_appart`, `libelle`) VALUES
-(1, 'F1'),
-(2, 'F2'),
-(3, 'T1'),
-(4, 'T2'),
-(5, 'T3');
-
--- --------------------------------------------------------
 
 --
 -- Structure de la table `Type_piece`
@@ -375,7 +340,7 @@ CREATE TABLE `Type_piece` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Utilisateur`
@@ -406,7 +371,7 @@ INSERT INTO `Utilisateur` (`id_utilisateur`, `admin`, `prenom`, `nom`, `actif`, 
 (7, 0, 'matmat', 'matmat', 1, '0669696969', '1998-02-02', 'matmat@gmail.com', '2021-01-04', 3, 'mat'),
 (8, 0, 'az', 'az', 1, '0669696969', '1998-03-31', 'adam@gmail.com', '2021-01-04', 1, 'adam');
 
--- --------------------------------------------------------
+
 
 --
 -- Structure de la table `Ville`
@@ -601,7 +566,7 @@ ALTER TABLE `Appareil`
 -- AUTO_INCREMENT pour la table `Appartement`
 --
 ALTER TABLE `Appartement`
-  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `Degre_citoyennete`
 --
@@ -616,7 +581,7 @@ ALTER TABLE `Degre_isolation`
 -- AUTO_INCREMENT pour la table `Degre_securite`
 --
 ALTER TABLE `Degre_securite`
-  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `Genre`
 --
@@ -626,7 +591,7 @@ ALTER TABLE `Genre`
 -- AUTO_INCREMENT pour la table `Maison`
 --
 ALTER TABLE `Maison`
-  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `Piece`
 --
@@ -651,7 +616,7 @@ ALTER TABLE `Type_appareil`
 -- AUTO_INCREMENT pour la table `Type_appartement`
 --
 ALTER TABLE `Type_appartement`
-  MODIFY `id_type_appart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_type_appart` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `Type_piece`
 --
