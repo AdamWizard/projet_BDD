@@ -39,7 +39,7 @@ echo <<<END
 
             <!--BOUTON POUT SUPPRIMER L APPART-->
             <form action="">
-                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+                <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
             </form>
 
             <eq>

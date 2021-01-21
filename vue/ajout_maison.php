@@ -106,7 +106,7 @@ echo <<<END
     <button type="reset">Valeurs par defaut</button>
     <button type="submit">Créer</button>
     </form>
-    <a href="index.php">Annuler (revenir au menu des maisons)</a>
+    <a href="index.php">Annuler (revenir au tableau de bord)</a>
 </div>
 END;
 ;
