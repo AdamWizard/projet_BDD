@@ -4,7 +4,7 @@ echo <<<END
 		<style>
 			#header{
 				height:10%;
-				background-color:darkgray;
+				background-color:#0BA4DB;
 				text-align:center;
 			}
 			#titre{
@@ -31,7 +31,7 @@ echo <<<END
 			
 		</style>
 </head>
-<body bgcolor="gray">
+<body bgcolor="#00698F">
 
 	<div id="header">
 	

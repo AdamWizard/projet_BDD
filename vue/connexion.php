@@ -4,22 +4,23 @@ echo <<<END
 		<style>
 			#header{
 				height:10%;
-				background-color:darkgray;
+				background-color:#0BA4DB;
 				text-align:center;
 			}
 			#titre{
+				
 				text-align:center;
 				display: inline;
 			}
 			#container{
 				padding-top:10px;
 				width: 600px;
-				height: 350px;
+				height: 320px;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
-				background-color: darkgray;
-				border: 1px solid black;
+				background-color: #0BA4DB;
+				
 			}
 			input{
 				margin-bottom: 10px;
@@ -39,7 +40,7 @@ echo <<<END
 			
 		</style>
 </head>
-<body bgcolor="gray">
+<body bgcolor="#00698F">
 
 	<div id="header">
 		<h1 id="titre">Accueil</h1>
@@ -61,8 +62,8 @@ echo <<<END
 			<button type="submit">Connexion</button>
 		</form>
 		
-		<h1>Pas encore de compte ? Inscrivez-vous</h1>
-		<a href="index.php?cible=inscription&fonction=afficher">S'inscrire</a>
+		<h1>Pas encore de compte ? <a href="index.php?cible=inscription&fonction=afficher">Inscrivez-vous</a></h1>
+		
 	</div>
 </body>
 

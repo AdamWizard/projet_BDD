@@ -6,7 +6,7 @@ echo <<<END
 		<style>
 			#header{
 				height:10%;
-				background-color:darkgray;
+				background-color:#0BA4DB;
 				text-align:center;
 			}
 			#titre{
@@ -36,7 +36,7 @@ echo <<<END
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
-				background-color: darkgray;
+				background-color: #0BA4DB;
 				border: 1px solid black;
 			}
 			input{
@@ -60,7 +60,7 @@ echo <<<END
 			
 		</style>
 </head>
-<body bgcolor="gray">
+<body bgcolor="#00698F">
 
 	<div id="header">
 	

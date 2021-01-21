@@ -4,7 +4,7 @@
 	<style>
 			#header{
 				height:10%;
-				background-color:darkgray;
+				background-color:#0BA4DB;
 				text-align:center;
 			}
 			#titre{
@@ -15,12 +15,12 @@
 			#container{
 				padding-top:10px;
 				width: 600px;
-				height: 530px;
+				height: 570px;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
-				background-color: darkgray;
-				border: 1px solid black;
+				background-color: #0BA4DB;
+				
 			}
 			input{
 				margin-bottom: 10px;
@@ -41,7 +41,7 @@
 			}
 	</style>
 </head>
-<body bgcolor="gray">
+<body bgcolor="#00698F">
 	
 	<div id="header">
 		<h1 id="titre">Inscription</h1>
@@ -94,9 +94,9 @@
         </div>
 
         <button type="reset">Valeurs par defaut</button>
-        <button type="submit">Inscription</button>
+        <button type="submit">Valider</button>
     </form>
-    <a href="index.php">Connexion</a>
+    <h2><a href="index.php">Connexion</a></h2>
 </div>
 </body>
 
