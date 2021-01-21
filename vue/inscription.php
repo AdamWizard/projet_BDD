@@ -15,7 +15,7 @@
 			#container{
 				padding-top:10px;
 				width: 600px;
-				height: 570px;
+				height: 530px;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
@@ -94,9 +94,9 @@
         </div>
 
         <button type="reset">Valeurs par defaut</button>
-        <button type="submit">Valider</button>
+        <button type="submit">Inscription</button>
     </form>
-    <h2><a href="index.php">Connexion</a></h2>
+    <a href="index.php">Connexion</a>
 </div>
 </body>
 

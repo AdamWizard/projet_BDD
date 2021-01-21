@@ -8,14 +8,13 @@ echo <<<END
 				text-align:center;
 			}
 			#titre{
-				
 				text-align:center;
 				display: inline;
 			}
 			#container{
 				padding-top:10px;
 				width: 600px;
-				height: 320px;
+				height: 350px;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
@@ -62,8 +61,8 @@ echo <<<END
 			<button type="submit">Connexion</button>
 		</form>
 		
-		<h1>Pas encore de compte ? <a href="index.php?cible=inscription&fonction=afficher">Inscrivez-vous</a></h1>
-		
+		<h1>Pas encore de compte ? Inscrivez-vous</h1>
+		<a href="index.php?cible=inscription&fonction=afficher">S'inscrire</a>
 	</div>
 </body>
 

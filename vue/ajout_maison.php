@@ -37,7 +37,7 @@ echo <<<END
 				margin-top: 100px;
 				text-align: center;
 				background-color: #0BA4DB;
-				border: 1px solid black;
+				
 			}
 			input{
 				margin-bottom: 10px;
@@ -106,7 +106,7 @@ echo <<<END
     <button type="reset">Valeurs par defaut</button>
     <button type="submit">Créer</button>
     </form>
-    <a href="index.php">Annuler (revenir au menu des maisons)</a>
+    <a href="index.php">Annuler (revenir au tableau de bord)</a>
 </div>
 END;
 ;
