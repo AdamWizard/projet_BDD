@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 20 Janvier 2021 à 22:29
+-- Généré le :  Ven 22 Janvier 2021 à 17:35
 -- Version du serveur :  10.1.47-MariaDB-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -35,6 +35,14 @@ CREATE TABLE `Appareil` (
   `id_type_appareil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `Appareil`
+--
+
+INSERT INTO `Appareil` (`id_appareil`, `nom_appareil`, `demo`, `debut_fonctionnement`, `fin_fonctionnement`, `id_type_appareil`) VALUES
+(1, 'Ordinateur jules', 'https://www.youtube.com/watch?v=zwPpOvBual4', NULL, NULL, 4),
+(2, 'radiateur salon', NULL, NULL, NULL, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +65,9 @@ CREATE TABLE `Appartement` (
 INSERT INTO `Appartement` (`id_appartement`, `numero_appart`, `id_deg_cit`, `id_type_appart`, `id_secu`, `id_maison`) VALUES
 (1, 12, 1, 1, 1, 17),
 (2, 13, 1, 3, 1, 17),
-(3, 14, 1, 5, 1, 16);
+(3, 14, 1, 5, 1, 16),
+(4, 3, 1, 2, 2, 15),
+(5, 8, 1, 5, 4, 15);
 
 -- --------------------------------------------------------
 
@@ -123,7 +133,10 @@ CREATE TABLE `Degre_securite` (
 --
 
 INSERT INTO `Degre_securite` (`id_secu`, `libelle`) VALUES
-(1, 'Indefini');
+(1, 'Indefini'),
+(2, 'Fort'),
+(3, 'Moyen'),
+(4, 'Faible');
 
 -- --------------------------------------------------------
 
@@ -223,7 +236,9 @@ INSERT INTO `Maison` (`id_maison`, `nom_maison`, `evaluation`, `rue`, `numero_ma
 (14, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (15, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (16, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
-(17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1);
+(17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1),
+(18, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '37000', 1, 1),
+(19, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -258,7 +273,9 @@ CREATE TABLE `Posseder` (
 INSERT INTO `Posseder` (`id_utilisateur`, `id_maison`, `date_fin`, `date_debut`) VALUES
 (4, 15, NULL, '0000-00-00'),
 (4, 16, NULL, '2021-01-06'),
-(4, 17, NULL, '2021-01-20');
+(4, 17, NULL, '2021-01-20'),
+(6, 18, NULL, '2021-01-21'),
+(6, 19, NULL, '2021-01-21');
 
 -- --------------------------------------------------------
 
@@ -270,6 +287,14 @@ CREATE TABLE `PossederAppareil` (
   `id_appartement` int(11) NOT NULL,
   `id_appareil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `PossederAppareil`
+--
+
+INSERT INTO `PossederAppareil` (`id_appartement`, `id_appareil`) VALUES
+(1, 1),
+(1, 2);
 
 -- --------------------------------------------------------
 
@@ -342,6 +367,19 @@ CREATE TABLE `Type_appareil` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `Type_appareil`
+--
+
+INSERT INTO `Type_appareil` (`id_type_appareil`, `libelle`) VALUES
+(1, 'Frigo'),
+(2, 'Micro-ondes'),
+(3, 'TV'),
+(4, 'Ordinateur'),
+(5, 'Machine a laver'),
+(6, 'Seche-linge'),
+(7, 'Radiateur');
+
 -- --------------------------------------------------------
 
 --
@@ -403,8 +441,7 @@ INSERT INTO `Utilisateur` (`id_utilisateur`, `admin`, `prenom`, `nom`, `actif`, 
 (4, 0, 'damien', 'mimi', 1, '0669696969', '2020-12-11', 'damien@hotmail.com', NULL, 1, 'dams'),
 (5, 0, 'test', 'test', 1, '0669696969', '2020-12-19', 'dam@dam.fr', '2020-12-19', 1, 'dams'),
 (6, 0, 'adam', 'adam', 1, '0782414574', '2000-12-14', 'adam@gmail.com', '2021-01-04', 1, 'adam'),
-(7, 0, 'matmat', 'matmat', 1, '0669696969', '1998-02-02', 'matmat@gmail.com', '2021-01-04', 3, 'mat'),
-(8, 0, 'az', 'az', 1, '0669696969', '1998-03-31', 'adam@gmail.com', '2021-01-04', 1, 'adam');
+(7, 0, 'matmat', 'matmat', 1, '0669696969', '1998-02-02', 'matmat@gmail.com', '2021-01-04', 3, 'mat');
 
 -- --------------------------------------------------------
 
@@ -596,17 +633,17 @@ ALTER TABLE `Ville`
 -- AUTO_INCREMENT pour la table `Appareil`
 --
 ALTER TABLE `Appareil`
-  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `Appartement`
 --
 ALTER TABLE `Appartement`
-  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `Degre_citoyennete`
 --
 ALTER TABLE `Degre_citoyennete`
-  MODIFY `id_deg_cit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_deg_cit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `Degre_isolation`
 --
@@ -616,7 +653,7 @@ ALTER TABLE `Degre_isolation`
 -- AUTO_INCREMENT pour la table `Degre_securite`
 --
 ALTER TABLE `Degre_securite`
-  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Genre`
 --
@@ -626,7 +663,7 @@ ALTER TABLE `Genre`
 -- AUTO_INCREMENT pour la table `Maison`
 --
 ALTER TABLE `Maison`
-  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT pour la table `Piece`
 --
@@ -646,7 +683,7 @@ ALTER TABLE `Substance`
 -- AUTO_INCREMENT pour la table `Type_appareil`
 --
 ALTER TABLE `Type_appareil`
-  MODIFY `id_type_appareil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_type_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `Type_appartement`
 --
@@ -661,7 +698,7 @@ ALTER TABLE `Type_piece`
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
