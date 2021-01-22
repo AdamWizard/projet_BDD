@@ -71,9 +71,9 @@ while($maison = $maisons->fetch_assoc()){
         
 
         <!--BOUTON POUR SUPPRIMER LA MAISON-->
-        <form action="">
-            <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
-        </form>
+        
+        <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+        
 END;
         while($appart = $appartements->fetch_assoc()){
             $idAppart = $appart['id_appartement'];
@@ -81,7 +81,8 @@ END;
             $degCitoyennete = $appart['citoyLib'];
             $typeAppart = $appart['typeApLib'];
             $degSecu = $appart['secuLib'];
-            $appareils = listeAppareilsAppart($idAppart);
+            $pieces=listePiecesAppart($idAppart);
+            
             echo <<<END
             <!-- appart -->
             <ap>
@@ -94,39 +95,34 @@ END;
                 
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
-                </form>
+                
+                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
+                
 END;
 		while($piece = $pieces->fetch_assoc()){
 			
 		$idPiece= $piece['id_piece'];
-		$libellePiece = $piece_['libelle_piece'];
-		$idAppartement= $piece['id_appartement'];
-		$idTypePiece= $piece['id_type_piece'];
-		$pieces=listePiecesAppart($idPiece)
+		$libellePiece = $piece['libelle_piece'];
+		$libelleTypePiece= $piece['libelle'];
+		$appareils = listeAppareilsPiece($idPiece);
 			
-		echo<<<END
-			!-- appareil -->
-            <ap>
-                <p>Pièce : $libelle_piece</p>
-                <p>Type de pièce : $libelle_type_piece</p>
-                <p>Degre de securite : $degSecu</p>
-                <p>Degre de citoyennete : $degCitoyennete</p>
-                <form action="eco_home_ajout_equipement.html">
-                    <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-                </form>
+        echo<<<END
+            <!-- piece -->
+            <div>
+                <p>Pièce : $libellePiece</p>
+                <p>Type de pièce : $libelleTypePiece</p>
+                
+                <input type="button" style="background-color:lightgray" value="Ajouter une piece" />
+                
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
-                </form>
+                
+                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+                
 		
 
 END;
 
-
-		}
 		
 		
         while($appareil = $appareils->fetch_assoc()){
@@ -145,16 +141,16 @@ END;
 END;
             if($demo != NULL){
                 echo <<<END
-                    <a href="$demo">Demonstration</a>
+                    <a href="$demo">Bonne utilisation</a>
 END;
             }
                     
             
             echo <<<END
                     <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
-                    <form action="">
-                        <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appareil" />
-                    </form>
+                    
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appareil" />
+                    
 
                     <br>
                     [consomation][substance consomee];
@@ -162,6 +158,10 @@ END;
                 </eq>
 END;
         }
+        echo <<<END
+            </div>
+END;
+}
         echo <<<END
             </ap>
 END;
