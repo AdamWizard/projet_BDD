@@ -54,18 +54,18 @@ echo <<<END
 
 END;
 while($maison = $maisons->fetch_assoc()){
-    //echo "<option value=".$maison['id_maison'].">".$maison['id_maison']."</option>";
     $nomMaison = $maison['nom_maison'];
     $numMaison = $maison['numero_maison'];
     $rueMaison = $maison['rue'];
     $cpMaison = $maison['code_postal'];
     $idMaison = $maison['id_maison'];
+    $degreIso = $maison['libelle'];
     $appartements = listeAppartsMaison($idMaison);
     echo <<<END
     <maison>
         <b>$nomMaison</b>
         <b>$numMaison $rueMaison $cpMaison</b>
-
+        <p>Degré d'isolation : $degreIso</p>
         
         <a href="index.php?cible=maison&fonction=nouvelAppart&idMaison=$idMaison"><input type="button" style="background-color:lightgray" value="Ajouter un appartement" /></a>
         
@@ -116,7 +116,7 @@ END;
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
                 
-                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette piece" />
                 
 		
 

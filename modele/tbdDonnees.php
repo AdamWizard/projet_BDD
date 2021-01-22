@@ -4,7 +4,7 @@ include("modele/connexionBDD.php");
 
 function listeMaisonsProprio(){
     $idConnect = $_SESSION['id_connect'];
-    $result = mysqli_query($_SESSION['bdd'],"Select * from Posseder inner join Maison on Posseder.id_maison = Maison.id_maison where id_utilisateur = $idConnect");
+    $result = mysqli_query($_SESSION['bdd'],"Select * from Posseder inner join Maison on Posseder.id_maison = Maison.id_maison inner join Degre_isolation on Degre_isolation.id_deg_iso = Maison.id_deg_iso where id_utilisateur = $idConnect");
     return $result;
 }
 

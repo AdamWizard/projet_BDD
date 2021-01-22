@@ -1,6 +1,6 @@
 <?php
-include("modele/codePostaux.php");
 $codePostaux = listeCodes();
+$degreIso = getDegIso();
 echo <<<END
 <head>
 		<style>
@@ -31,9 +31,8 @@ echo <<<END
 			}
 			#container{
 				padding-top:10px;
-				width: 600px;
-				height: 350px;
-				margin: auto;
+				margin-right:10%;
+				margin-left:10%;
 				margin-top: 100px;
 				text-align: center;
 				background-color: #0BA4DB;
@@ -102,7 +101,20 @@ echo <<<END
     <div>
     <label for="idEval">Description de l'etat</label>
     <input name="evaluation" type="text" id="idEval" maxlength="50" required>
+	</div>
+	<div>
+            <label for="idDegreIso">Degré d'isolation</label>
+            <select name="degreIso" id="idDegreIso">
+END;
+;
+while($degre = $degreIso->fetch_assoc()){
+    echo "<option value=".$degre['id_deg_iso'].">".$degre['libelle']."</option>";
+}
+echo <<<END
+        </select>
     </div>
+
+
     <button type="reset">Valeurs par defaut</button>
     <button type="submit">Créer</button>
     </form>
