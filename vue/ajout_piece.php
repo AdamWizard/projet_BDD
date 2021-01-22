@@ -1,4 +1,7 @@
 <?php
+
+$typesPiece = getTypePiece();
+$idAppart = $_GET['idAppart'];
 echo <<<END
 <head>
 		<style>
@@ -71,16 +74,27 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="tableau_de_bord.php">
+<form method="POST" action="">
     <div>
             <label for="idNomPiece">Nom de la pièce</label>
-            <input name="NomPiece" type="text" id="idNomPiece" required>
+            <input name="nomPiece" type="text" id="idNomPiece" required>
+	</div>
+	<div>
+			<label for="idTypePiece">Type de piece</label>
+			<select name="typePiece" id="idTypePiece">
+
+END;
+;
+while($type = $typesPiece->fetch_assoc()){
+    echo "<option value=".$type['id_type_piece'].">".$type['libelle']."</option>";
+}
+echo <<<END
+			</select>
+	</div>
+	<input name="idAppart" id="idAppart" type="hidden" value="$idAppart">
 			
-            <label for="idTypepiece">Type de pièce</label>
-            <input name="TypePiece" type="date" id="idTypePiece" required>
-			
-            <input name="Valide" type="submit" id="idValide" value="Valider"required>
-    </div>
+    <input name="Valide" type="submit" id="idValide" value="Valider">
+	
 </form>
 
 	

@@ -11,6 +11,7 @@
  */
 include("modele/nouvelleMaison.php");
 include("modele/nouvelAppart.php");
+include("modele/nouvellePiece.php");
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
@@ -53,19 +54,35 @@ switch ($function) {
             }
         }
         break;
-        case 'nouvelAppareil':
-            if(!(isset($_SESSION['id_connect']))){
+    case 'nouvelAppareil':
+        if(!(isset($_SESSION['id_connect']))){
+            $vue = "connexion";
+            $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison'])){
+                nouvel_appart($_POST['NumAppart'], 1, $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "ajout_appareil";
+                $title = "Ajout appareil";
+            }
+        }
+        break;
+    case 'nouvellePiece':
+        if(!(isset($_SESSION['id_connect']))){
                 $vue = "connexion";
                 $title = "Connexion";
             }else{
                 //test si les champs sont set
-                if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison'])){
-                    nouvel_appart($_POST['NumAppart'], 1, $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
+                if(isset($_POST['nomPiece']) && isset($_POST['typePiece']) && isset($_POST['idAppart'])){
+                    nouvelle_Piece($_POST['nomPiece'], $_POST['idAppart'], $_POST['typePiece']);
                     $vue = "tableau_de_bord";
                     $title = "Tableau";
                 }else{
-                    $vue = "ajout_appareil";
-                    $title = "Ajout appareil";
+                    $vue = "ajout_piece";
+                    $title = "Ajout piece";
                 }
             }
             break;

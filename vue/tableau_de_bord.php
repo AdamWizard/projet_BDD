@@ -91,8 +91,7 @@ END;
                 <p>Degre de securite : $degSecu</p>
                 <p>Degre de citoyennete : $degCitoyennete</p>
                 
-                <a href="index.php?cible=maison&fonction=nouvelAppareil&idAppart=$idAppart"><input type="button" style="background-color:lightgray" value="Ajouter un appareil" /></a>
-                
+                <a href="index.php?cible=maison&fonction=nouvellePiece&idAppart=$idAppart"><input type="button" style="background-color:lightgray" value="Ajouter une piece"/></a>
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
                 
@@ -112,7 +111,7 @@ END;
                 <p>Pièce : $libellePiece</p>
                 <p>Type de pièce : $libelleTypePiece</p>
                 
-                <input type="button" style="background-color:lightgray" value="Ajouter une piece" />
+                <a href="index.php?cible=maison&fonction=nouvelAppareil&idPiece=$idPiece"><input type="button" style="background-color:lightgray" value="Ajouter une appareil" /></a>
                 
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->

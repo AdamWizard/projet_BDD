@@ -1,5 +1,4 @@
 <?php
-//include("modele/nouvelAppart.php");
 $typesAppart = getTypeAppart();
 $secusAppart = getSecu();
 $idMaison = $_GET['idMaison'];
