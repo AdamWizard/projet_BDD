@@ -66,9 +66,9 @@ while($maison = $maisons->fetch_assoc()){
         <b>$nomMaison</b>
         <b>$numMaison $rueMaison $cpMaison</b>
 
-        <form action="eco_home_ajout_appart.html">
-            <input type="submit" style="background-color:lightgray" value="Ajouter un appartement" />
-        </form>
+        
+        <a href="index.php?cible=maison&fonction=nouvelAppart&idMaison=$idMaison"><input type="button" style="background-color:lightgray" value="Ajouter un appartement" /></a>
+        
 
         <!--BOUTON POUR SUPPRIMER LA MAISON-->
         <form action="">

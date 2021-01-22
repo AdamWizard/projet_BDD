@@ -10,6 +10,7 @@
  * Contrôleur maison
  */
 include("modele/nouvelleMaison.php");
+include("modele/nouvelAppart.php");
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
@@ -36,7 +37,22 @@ switch ($function) {
             }
         }
         break;
-        
+    case 'nouvelAppart':
+        if(!(isset($_SESSION['id_connect']))){
+            $vue = "connexion";
+            $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison'])){
+                nouvel_appart($_POST['NumAppart'], 1, $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "ajout_appartement";
+                $title = "Ajout appartement";
+            }
+        }
+        break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";

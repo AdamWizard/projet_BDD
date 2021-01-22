@@ -1,4 +1,8 @@
 <?php
+//include("modele/nouvelAppart.php");
+$typesAppart = getTypeAppart();
+$secusAppart = getSecu();
+$idMaison = $_GET['idMaison'];
 echo <<<END
 <head>
 		<style>
@@ -29,8 +33,7 @@ echo <<<END
 			}
 			#container{
 				padding-top:10px;
-				width: 600px;
-				height: 100px;
+				width: 50%;
 				margin: auto;
 				margin-top: 100px;
 				text-align: center;
@@ -54,6 +57,9 @@ echo <<<END
 			select{
 				margin-bottom: 10px;
 			}
+			#annuler{
+				text-align: center;
+			}
 			
 			
 		</style>
@@ -71,16 +77,43 @@ echo <<<END
 
 <div id="container">
 
-<form method="POST" action="tableau_de_bord.php">
-    <div>
-            <label for="idNumAppart">Numero de l'appartement</label>
-            <input name="NumAppart" type="number" id="idNumAppart" required>
-			
-            <input name="Valide" type="submit" id="idValide" value="Valider"required>
-    </div>
-</form>
-	
-    <a href="index.php">Annuler (revenir au tableau de bord)</a>
+	<form method="POST" action="">
+		<div>
+				<label for="idNumAppart">Numero de l'appartement</label>
+				<input name="NumAppart" type="number" id="idNumAppart" required>
+		</div>
+
+		<div>
+            <label for="idTypeApp">Type d'appartement</label>
+            <select name="typeApp" id="idTypeApp">
+END;
+;
+while($type = $typesAppart->fetch_assoc()){
+    echo "<option value=".$type['id_type_appart'].">".$type['libelle']."</option>";
+}
+echo <<<END
+			</select>
+		</div>
+		<div>
+            <label for="idSecuApp">Securite de l'appartement</label>
+            <select name="secuApp" id="idSecuApp">
+
+END;
+;
+while($secu = $secusAppart->fetch_assoc()){
+    echo "<option value=".$secu['id_secu'].">".$secu['libelle']."</option>";
+}
+echo <<<END
+			</select>
+		</div>
+		<input name="idMaison" id="idMaison" type="hidden" value="$idMaison">
+		<input name="Valide" type="submit" id="idValide" value="Valider">
+	</form>
+	</div>
+<div id="annuler">
+	<a href="index.php">Annuler (revenir au tableau de bord)</a>
+</div>
+
 	
 END;
 ;

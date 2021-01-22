@@ -11,7 +11,7 @@ function listeMaisonsProprio(){
 
 
 function listeAppartsMaison($idMaison){
-    $result = mysqli_query($_SESSION['bdd'],"Select id_appartement,numero_appart,Degre_citoyennete.libelle as citoyLib,Type_appartement.libelle as typeApLib,Degre_securite.libelle as secuLib from Appartement inner join Degre_citoyennete on Appartement.id_deg_cit = Degre_citoyennete.id_deg_cit inner join Type_appartement on Appartement.id_type_appart = Type_appartement.id_type_appart inner join Degre_securite on Appartement.id_deg_cit = Degre_securite.id_secu where id_maison = $idMaison");
+    $result = mysqli_query($_SESSION['bdd'],"Select id_appartement,numero_appart,Degre_citoyennete.libelle as citoyLib,Type_appartement.libelle as typeApLib,Degre_securite.libelle as secuLib from Appartement inner join Degre_citoyennete on Appartement.id_deg_cit = Degre_citoyennete.id_deg_cit inner join Type_appartement on Appartement.id_type_appart = Type_appartement.id_type_appart inner join Degre_securite on Appartement.id_secu = Degre_securite.id_secu where id_maison = $idMaison");
     return $result;
 }
 
