@@ -53,6 +53,22 @@ switch ($function) {
             }
         }
         break;
+        case 'nouvelAppareil':
+            if(!(isset($_SESSION['id_connect']))){
+                $vue = "connexion";
+                $title = "Connexion";
+            }else{
+                //test si les champs sont set
+                if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison'])){
+                    nouvel_appart($_POST['NumAppart'], 1, $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
+                    $vue = "tableau_de_bord";
+                    $title = "Tableau";
+                }else{
+                    $vue = "ajout_appareil";
+                    $title = "Ajout appareil";
+                }
+            }
+            break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";

@@ -89,13 +89,13 @@ END;
                 <p>Type : $typeAppart</p>
                 <p>Degre de securite : $degSecu</p>
                 <p>Degre de citoyennete : $degCitoyennete</p>
-                <form action="eco_home_ajout_equipement.html">
-                    <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-                </form>
+                
+                <a href="index.php?cible=maison&fonction=nouvelAppareil&idAppart=$idAppart"><input type="button" style="background-color:lightgray" value="Ajouter un appareil" /></a>
+                
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
                 <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
                 </form>
 END;
         while($appareil = $appareils->fetch_assoc()){
@@ -122,7 +122,7 @@ END;
             echo <<<END
                     <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
                     <form action="">
-                        <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
+                        <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appareil" />
                     </form>
 
                     <br>
