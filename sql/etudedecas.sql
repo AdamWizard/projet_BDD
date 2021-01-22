@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Ven 22 Janvier 2021 à 19:04
+-- Généré le :  Ven 22 Janvier 2021 à 22:34
 -- Version du serveur :  10.1.47-MariaDB-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -40,7 +40,8 @@ CREATE TABLE `Appareil` (
 
 INSERT INTO `Appareil` (`id_appareil`, `nom_appareil`, `debut_fonctionnement`, `fin_fonctionnement`, `id_type_appareil`) VALUES
 (1, 'Ordinateur jules', NULL, NULL, 4),
-(2, 'radiateur salon', NULL, NULL, 7);
+(2, 'radiateur salon', NULL, NULL, 7),
+(3, 'TV du salon', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -114,7 +115,10 @@ CREATE TABLE `Degre_isolation` (
 --
 
 INSERT INTO `Degre_isolation` (`id_deg_iso`, `libelle`) VALUES
-(1, 'Indefini');
+(1, 'Indefini'),
+(2, 'Fort'),
+(3, 'Moyen'),
+(4, 'Faible');
 
 -- --------------------------------------------------------
 
@@ -175,7 +179,8 @@ CREATE TABLE `Emplacement` (
 
 INSERT INTO `Emplacement` (`id_appareil`, `Description`, `id_piece`) VALUES
 (1, 'Bureau de la chambre', 3),
-(2, 'mur droit du salon sous la fenêtre', 5);
+(2, 'mur droit du salon sous la fenêtre', 5),
+(3, 'Sur le meuble TV', 5);
 
 -- --------------------------------------------------------
 
@@ -245,7 +250,8 @@ INSERT INTO `Maison` (`id_maison`, `nom_maison`, `evaluation`, `rue`, `numero_ma
 (16, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1),
 (18, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '37000', 1, 1),
-(19, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1);
+(19, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1),
+(20, 'tamaison', 'pas mal', 'rue des poussieres', 12, '45000', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -269,7 +275,8 @@ INSERT INTO `Piece` (`id_piece`, `libelle_piece`, `id_appartement`, `id_type_pie
 (2, 'Salon', 5, 3),
 (3, 'Chambre 1', 5, 4),
 (4, 'Chambre 2', 5, 4),
-(5, 'Salon', 4, 3);
+(5, 'Salon', 4, 3),
+(6, 'Chambre 3', 4, 4);
 
 -- --------------------------------------------------------
 
@@ -292,6 +299,7 @@ INSERT INTO `Posseder` (`id_utilisateur`, `id_maison`, `date_fin`, `date_debut`)
 (4, 15, NULL, '0000-00-00'),
 (4, 16, NULL, '2021-01-06'),
 (4, 17, NULL, '2021-01-20'),
+(4, 20, NULL, '2021-01-22'),
 (6, 18, NULL, '2021-01-21'),
 (6, 19, NULL, '2021-01-21');
 
@@ -641,7 +649,7 @@ ALTER TABLE `Ville`
 -- AUTO_INCREMENT pour la table `Appareil`
 --
 ALTER TABLE `Appareil`
-  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `Appartement`
 --
@@ -656,7 +664,7 @@ ALTER TABLE `Degre_citoyennete`
 -- AUTO_INCREMENT pour la table `Degre_isolation`
 --
 ALTER TABLE `Degre_isolation`
-  MODIFY `id_deg_iso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_deg_iso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Degre_securite`
 --
@@ -671,12 +679,12 @@ ALTER TABLE `Genre`
 -- AUTO_INCREMENT pour la table `Maison`
 --
 ALTER TABLE `Maison`
-  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `Piece`
 --
 ALTER TABLE `Piece`
-  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `Ressource`
 --
