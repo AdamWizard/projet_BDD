@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 20 Janvier 2021 à 22:29
+-- Généré le :  Ven 22 Janvier 2021 à 22:34
 -- Version du serveur :  10.1.47-MariaDB-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -29,11 +29,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `Appareil` (
   `id_appareil` int(11) NOT NULL,
   `nom_appareil` varchar(50) DEFAULT NULL,
-  `demo` varchar(200) DEFAULT NULL,
   `debut_fonctionnement` datetime DEFAULT NULL,
   `fin_fonctionnement` datetime DEFAULT NULL,
   `id_type_appareil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `Appareil`
+--
+
+INSERT INTO `Appareil` (`id_appareil`, `nom_appareil`, `debut_fonctionnement`, `fin_fonctionnement`, `id_type_appareil`) VALUES
+(1, 'Ordinateur jules', NULL, NULL, 4),
+(2, 'radiateur salon', NULL, NULL, 7),
+(3, 'TV du salon', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -57,7 +65,9 @@ CREATE TABLE `Appartement` (
 INSERT INTO `Appartement` (`id_appartement`, `numero_appart`, `id_deg_cit`, `id_type_appart`, `id_secu`, `id_maison`) VALUES
 (1, 12, 1, 1, 1, 17),
 (2, 13, 1, 3, 1, 17),
-(3, 14, 1, 5, 1, 16);
+(3, 14, 1, 5, 1, 16),
+(4, 3, 1, 2, 2, 15),
+(5, 8, 1, 5, 4, 15);
 
 -- --------------------------------------------------------
 
@@ -105,7 +115,10 @@ CREATE TABLE `Degre_isolation` (
 --
 
 INSERT INTO `Degre_isolation` (`id_deg_iso`, `libelle`) VALUES
-(1, 'Indefini');
+(1, 'Indefini'),
+(2, 'Fort'),
+(3, 'Moyen'),
+(4, 'Faible');
 
 -- --------------------------------------------------------
 
@@ -123,7 +136,10 @@ CREATE TABLE `Degre_securite` (
 --
 
 INSERT INTO `Degre_securite` (`id_secu`, `libelle`) VALUES
-(1, 'Indefini');
+(1, 'Indefini'),
+(2, 'Fort'),
+(3, 'Moyen'),
+(4, 'Faible');
 
 -- --------------------------------------------------------
 
@@ -156,6 +172,15 @@ CREATE TABLE `Emplacement` (
   `Description` varchar(200) DEFAULT NULL,
   `id_piece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `Emplacement`
+--
+
+INSERT INTO `Emplacement` (`id_appareil`, `Description`, `id_piece`) VALUES
+(1, 'Bureau de la chambre', 3),
+(2, 'mur droit du salon sous la fenêtre', 5),
+(3, 'Sur le meuble TV', 5);
 
 -- --------------------------------------------------------
 
@@ -223,7 +248,10 @@ INSERT INTO `Maison` (`id_maison`, `nom_maison`, `evaluation`, `rue`, `numero_ma
 (14, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (15, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
 (16, 'myhouse', 'Super niquel', 'rue des poussieres', 2, '29000', 1, 1),
-(17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1);
+(17, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1),
+(18, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '37000', 1, 1),
+(19, 'myhouse', 'Super niquel', 'rue des poussieres', 12, '29000', 1, 1),
+(20, 'tamaison', 'pas mal', 'rue des poussieres', 12, '45000', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -237,6 +265,18 @@ CREATE TABLE `Piece` (
   `id_appartement` int(11) NOT NULL,
   `id_type_piece` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `Piece`
+--
+
+INSERT INTO `Piece` (`id_piece`, `libelle_piece`, `id_appartement`, `id_type_piece`) VALUES
+(1, 'Cuisine', 5, 2),
+(2, 'Salon', 5, 3),
+(3, 'Chambre 1', 5, 4),
+(4, 'Chambre 2', 5, 4),
+(5, 'Salon', 4, 3),
+(6, 'Chambre 3', 4, 4);
 
 -- --------------------------------------------------------
 
@@ -258,18 +298,10 @@ CREATE TABLE `Posseder` (
 INSERT INTO `Posseder` (`id_utilisateur`, `id_maison`, `date_fin`, `date_debut`) VALUES
 (4, 15, NULL, '0000-00-00'),
 (4, 16, NULL, '2021-01-06'),
-(4, 17, NULL, '2021-01-20');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `PossederAppareil`
---
-
-CREATE TABLE `PossederAppareil` (
-  `id_appartement` int(11) NOT NULL,
-  `id_appareil` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(4, 17, NULL, '2021-01-20'),
+(4, 20, NULL, '2021-01-22'),
+(6, 18, NULL, '2021-01-21'),
+(6, 19, NULL, '2021-01-21');
 
 -- --------------------------------------------------------
 
@@ -339,8 +371,22 @@ CREATE TABLE `Substance` (
 
 CREATE TABLE `Type_appareil` (
   `id_type_appareil` int(11) NOT NULL,
-  `libelle` varchar(50) DEFAULT NULL
+  `libelle` varchar(50) DEFAULT NULL,
+  `demo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `Type_appareil`
+--
+
+INSERT INTO `Type_appareil` (`id_type_appareil`, `libelle`, `demo`) VALUES
+(1, 'Frigo', 'https://www.youtube.com/watch?v=fY511Gr0lYU'),
+(2, 'Micro-ondes', 'https://www.youtube.com/watch?v=u3dVsSv3nlg'),
+(3, 'TV', 'https://www.youtube.com/watch?v=m8lRVQP2jOY'),
+(4, 'Ordinateur', ''),
+(5, 'Machine a laver', ''),
+(6, 'Seche-linge', ''),
+(7, 'Radiateur', '');
 
 -- --------------------------------------------------------
 
@@ -375,6 +421,21 @@ CREATE TABLE `Type_piece` (
   `libelle` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `Type_piece`
+--
+
+INSERT INTO `Type_piece` (`id_type_piece`, `libelle`) VALUES
+(1, 'Entree'),
+(2, 'Cuisine'),
+(3, 'Salon'),
+(4, 'Chambre'),
+(5, 'Salle de bain'),
+(6, 'Toilettes'),
+(7, 'Cellier'),
+(8, 'Cave'),
+(9, 'Salle a manger');
+
 -- --------------------------------------------------------
 
 --
@@ -403,8 +464,7 @@ INSERT INTO `Utilisateur` (`id_utilisateur`, `admin`, `prenom`, `nom`, `actif`, 
 (4, 0, 'damien', 'mimi', 1, '0669696969', '2020-12-11', 'damien@hotmail.com', NULL, 1, 'dams'),
 (5, 0, 'test', 'test', 1, '0669696969', '2020-12-19', 'dam@dam.fr', '2020-12-19', 1, 'dams'),
 (6, 0, 'adam', 'adam', 1, '0782414574', '2000-12-14', 'adam@gmail.com', '2021-01-04', 1, 'adam'),
-(7, 0, 'matmat', 'matmat', 1, '0669696969', '1998-02-02', 'matmat@gmail.com', '2021-01-04', 3, 'mat'),
-(8, 0, 'az', 'az', 1, '0669696969', '1998-03-31', 'adam@gmail.com', '2021-01-04', 1, 'adam');
+(7, 0, 'matmat', 'matmat', 1, '0669696969', '1998-02-02', 'matmat@gmail.com', '2021-01-04', 3, 'mat');
 
 -- --------------------------------------------------------
 
@@ -525,13 +585,6 @@ ALTER TABLE `Posseder`
   ADD KEY `id_maison` (`id_maison`);
 
 --
--- Index pour la table `PossederAppareil`
---
-ALTER TABLE `PossederAppareil`
-  ADD PRIMARY KEY (`id_appartement`,`id_appareil`),
-  ADD KEY `id_appareil` (`id_appareil`);
-
---
 -- Index pour la table `Produire`
 --
 ALTER TABLE `Produire`
@@ -596,12 +649,12 @@ ALTER TABLE `Ville`
 -- AUTO_INCREMENT pour la table `Appareil`
 --
 ALTER TABLE `Appareil`
-  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `Appartement`
 --
 ALTER TABLE `Appartement`
-  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_appartement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `Degre_citoyennete`
 --
@@ -611,12 +664,12 @@ ALTER TABLE `Degre_citoyennete`
 -- AUTO_INCREMENT pour la table `Degre_isolation`
 --
 ALTER TABLE `Degre_isolation`
-  MODIFY `id_deg_iso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_deg_iso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Degre_securite`
 --
 ALTER TABLE `Degre_securite`
-  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_secu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `Genre`
 --
@@ -626,12 +679,12 @@ ALTER TABLE `Genre`
 -- AUTO_INCREMENT pour la table `Maison`
 --
 ALTER TABLE `Maison`
-  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `Piece`
 --
 ALTER TABLE `Piece`
-  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `Ressource`
 --
@@ -646,7 +699,7 @@ ALTER TABLE `Substance`
 -- AUTO_INCREMENT pour la table `Type_appareil`
 --
 ALTER TABLE `Type_appareil`
-  MODIFY `id_type_appareil` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_type_appareil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `Type_appartement`
 --
@@ -656,12 +709,12 @@ ALTER TABLE `Type_appartement`
 -- AUTO_INCREMENT pour la table `Type_piece`
 --
 ALTER TABLE `Type_piece`
-  MODIFY `id_type_piece` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_type_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `Utilisateur`
 --
 ALTER TABLE `Utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Contraintes pour les tables exportées
 --
@@ -729,13 +782,6 @@ ALTER TABLE `Piece`
 ALTER TABLE `Posseder`
   ADD CONSTRAINT `Posseder_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `Utilisateur` (`id_utilisateur`),
   ADD CONSTRAINT `Posseder_ibfk_2` FOREIGN KEY (`id_maison`) REFERENCES `Maison` (`id_maison`);
-
---
--- Contraintes pour la table `PossederAppareil`
---
-ALTER TABLE `PossederAppareil`
-  ADD CONSTRAINT `PossederAppareil_ibfk_1` FOREIGN KEY (`id_appartement`) REFERENCES `Appartement` (`id_appartement`),
-  ADD CONSTRAINT `PossederAppareil_ibfk_2` FOREIGN KEY (`id_appareil`) REFERENCES `Appareil` (`id_appareil`);
 
 --
 -- Contraintes pour la table `Produire`

@@ -3,37 +3,9 @@ include("modele/tbdDonnees.php");
 $maisons = listeMaisonsProprio();
 echo <<<END
 <head>
-		<style>
-			#header{
-				height:10%;
-				background-color:#0BA4DB;
-				text-align:center;
-			}
-			#titre{
-				margin-left:100px;
-				text-align:center;
-				display: inline;
-			}
-			#deco{
-				float:right;
-				margin-right:10px;
-				margin-top:2px;
-			}
-			img{
-				
-				width:30px;
-				height:30px;
-			}
-			#profil{
-				margin-right:15px;
-				margin-top:4px;
-				float:right;
-			}
-			
-			
-		</style>
+<link href="css/style.css" rel="stylesheet" media="all" type="text/css">
 </head>
-<body bgcolor="#00698F">
+
 
 	<div id="header">
 	
@@ -46,34 +18,34 @@ echo <<<END
 		<a href=""><img id="profil" src="profil.png" title="Profil"></a>
     </div>
 
-    <body bgcolor="grey">
+    <body>
 
     <h1>Menu des maisons</h1>
 
-    <a href="index.php?cible=maison&fonction=formulaire"> <input type="button" style="background-color:lightgray" value="Ajouter une maison" /> </a>
+    <a href="index.php?cible=maison&fonction=formulaire"> <input type="button" value="Ajouter une maison" /> </a>
 
 END;
 while($maison = $maisons->fetch_assoc()){
-    //echo "<option value=".$maison['id_maison'].">".$maison['id_maison']."</option>";
     $nomMaison = $maison['nom_maison'];
     $numMaison = $maison['numero_maison'];
     $rueMaison = $maison['rue'];
     $cpMaison = $maison['code_postal'];
     $idMaison = $maison['id_maison'];
+    $degreIso = $maison['libelle'];
     $appartements = listeAppartsMaison($idMaison);
     echo <<<END
     <maison>
         <b>$nomMaison</b>
         <b>$numMaison $rueMaison $cpMaison</b>
-
-        <form action="eco_home_ajout_appart.html">
-            <input type="submit" style="background-color:lightgray" value="Ajouter un appartement" />
-        </form>
+        <p>Degré d'isolation : $degreIso</p>
+        
+        <a href="index.php?cible=maison&fonction=nouvelAppart&idMaison=$idMaison"><input type="button" style="background-color:lightgray" value="Ajouter un appartement" /></a>
+        
 
         <!--BOUTON POUR SUPPRIMER LA MAISON-->
-        <form action="">
-            <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
-        </form>
+        
+        <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+        
 END;
         while($appart = $appartements->fetch_assoc()){
             $idAppart = $appart['id_appartement'];
@@ -81,7 +53,8 @@ END;
             $degCitoyennete = $appart['citoyLib'];
             $typeAppart = $appart['typeApLib'];
             $degSecu = $appart['secuLib'];
-            $appareils = listeAppareilsAppart($idAppart);
+            $pieces=listePiecesAppart($idAppart);
+            
             echo <<<END
             <!-- appart -->
             <ap>
@@ -89,15 +62,40 @@ END;
                 <p>Type : $typeAppart</p>
                 <p>Degre de securite : $degSecu</p>
                 <p>Degre de citoyennete : $degCitoyennete</p>
-                <form action="eco_home_ajout_equipement.html">
-                    <input type="submit" style="background-color:lightgray" value="Ajouter un equipement" />
-                </form>
+                
+                <a href="index.php?cible=maison&fonction=nouvellePiece&idAppart=$idAppart"><input type="button" style="background-color:lightgray" value="Ajouter une piece"/></a>
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
-                <form action="">
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
-                </form>
+                
+                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
+                
 END;
+		while($piece = $pieces->fetch_assoc()){
+			
+		$idPiece= $piece['id_piece'];
+		$libellePiece = $piece['libelle_piece'];
+		$libelleTypePiece= $piece['libelle'];
+		$appareils = listeAppareilsPiece($idPiece);
+			
+        echo<<<END
+            <!-- piece -->
+            <div>
+                <p>Pièce : $libellePiece</p>
+                <p>Type de pièce : $libelleTypePiece</p>
+                
+                <a href="index.php?cible=maison&fonction=nouvelAppareil&idPiece=$idPiece"><input type="button" style="background-color:lightgray" value="Ajouter une appareil" /></a>
+                
+
+                <!--BOUTON POUT SUPPRIMER L APPART-->
+                
+                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette piece" />
+                
+		
+
+END;
+
+		
+		
         while($appareil = $appareils->fetch_assoc()){
             $id_appareil = $appareil['id_appareil'];
             $nom_appareil = $appareil['nom_appareil'];
@@ -114,16 +112,16 @@ END;
 END;
             if($demo != NULL){
                 echo <<<END
-                    <a href="$demo">Demonstration</a>
+                    <a href="$demo">Bonne utilisation</a>
 END;
             }
                     
             
             echo <<<END
                     <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
-                    <form action="">
-                        <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet equipement" />
-                    </form>
+                    
+                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appareil" />
+                    
 
                     <br>
                     [consomation][substance consomee];
@@ -131,6 +129,10 @@ END;
                 </eq>
 END;
         }
+        echo <<<END
+            </div>
+END;
+}
         echo <<<END
             </ap>
 END;

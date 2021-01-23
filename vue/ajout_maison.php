@@ -1,66 +1,11 @@
 <?php
-include("modele/codePostaux.php");
 $codePostaux = listeCodes();
+$degreIso = getDegIso();
 echo <<<END
 <head>
-		<style>
-			#header{
-				height:10%;
-				background-color:#0BA4DB;
-				text-align:center;
-			}
-			#titre{
-				margin-left:100px;
-				text-align:center;
-				display: inline;
-			}
-			#deco{
-				float:right;
-				margin-right:10px;
-				margin-top:2px;
-			}
-			img{
-				
-				width:30px;
-				height:30px;
-			}
-			#profil{
-				margin-right:15px;
-				margin-top:4px;
-				float:right;
-			}
-			#container{
-				padding-top:10px;
-				width: 600px;
-				height: 350px;
-				margin: auto;
-				margin-top: 100px;
-				text-align: center;
-				background-color: #0BA4DB;
-				
-			}
-			input{
-				margin-bottom: 10px;
-				width: 50%;
-				padding: 6px 10px;
-				display: inline-block;
-			}
-			label{
-				display: block;
-				
-			}
-			button{
-				width: 200px;
-				height: 30px
-			}
-			select{
-				margin-bottom: 10px;
-			}
-			
-			
-		</style>
+<link href="css/style.css" rel="stylesheet" media="all" type="text/css">
 </head>
-<body bgcolor="#00698F">
+<body>
 
 	<div id="header">
 	
@@ -102,11 +47,24 @@ echo <<<END
     <div>
     <label for="idEval">Description de l'etat</label>
     <input name="evaluation" type="text" id="idEval" maxlength="50" required>
+	</div>
+	<div>
+            <label for="idDegreIso">Degré d'isolation</label>
+            <select name="degreIso" id="idDegreIso">
+END;
+;
+while($degre = $degreIso->fetch_assoc()){
+    echo "<option value=".$degre['id_deg_iso'].">".$degre['libelle']."</option>";
+}
+echo <<<END
+        </select>
     </div>
+
+
     <button type="reset">Valeurs par defaut</button>
     <button type="submit">Créer</button>
     </form>
-    <a href="index.php">Annuler (revenir au tableau de bord)</a>
+    <h2><a href="index.php">Annuler</a></h2>
 </div>
 END;
 ;

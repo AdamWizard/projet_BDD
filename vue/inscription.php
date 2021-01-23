@@ -1,47 +1,8 @@
 <?php
 	echo <<< END
 <head>
-	<style>
-			#header{
-				height:10%;
-				background-color:#0BA4DB;
-				text-align:center;
-			}
-			#titre{
-				
-				text-align:center;
-				display: inline;
-			}
-			#container{
-				padding-top:10px;
-				width: 600px;
-				height: 530px;
-				margin: auto;
-				margin-top: 100px;
-				text-align: center;
-				background-color: #0BA4DB;
-				
-			}
-			input{
-				margin-bottom: 10px;
-				width: 50%;
-				padding: 6px 10px;
-				display: inline-block;
-			}
-			label{
-				display: block;
-				
-			}
-			button{
-				width: 200px;
-				height: 30px
-			}
-			select{
-				margin-bottom: 10px;
-			}
-	</style>
+<link href="css/style.css" rel="stylesheet" media="all" type="text/css">
 </head>
-<body bgcolor="#00698F">
 	
 	<div id="header">
 		<h1 id="titre">Inscription</h1>
@@ -96,7 +57,7 @@
         <button type="reset">Valeurs par defaut</button>
         <button type="submit">Inscription</button>
     </form>
-    <a href="index.php">Connexion</a>
+    <h2><a href="index.php">Connexion</a></h2>
 </div>
 </body>
 
