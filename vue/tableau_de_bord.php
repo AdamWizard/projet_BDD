@@ -19,11 +19,13 @@ echo <<<END
     </div>
 
     <body>
+	
+	<div id="presentation">
 
-    <h1>Menu des maisons</h1>
 
-    <a href="index.php?cible=maison&fonction=formulaire"> <input type="button" value="Ajouter une maison" /> </a>
-
+	<a href="index.php?cible=maison&fonction=formulaire"> <input type="button" value="Ajouter une maison" /> </a>
+    
+	</div>
 END;
 while($maison = $maisons->fetch_assoc()){
     $nomMaison = $maison['nom_maison'];
@@ -35,16 +37,15 @@ while($maison = $maisons->fetch_assoc()){
     $appartements = listeAppartsMaison($idMaison);
     echo <<<END
     <maison>
-        <b>$nomMaison</b>
-        <b>$numMaison $rueMaison $cpMaison</b>
+        <h2>$nomMaison - $numMaison $rueMaison - $cpMaison</h2>
         <p>Degré d'isolation : $degreIso</p>
-        
-        <a href="index.php?cible=maison&fonction=nouvelAppart&idMaison=$idMaison"><input type="button" style="background-color:lightgray" value="Ajouter un appartement" /></a>
+         
+        <a href="index.php?cible=maison&fonction=nouvelAppart&idMaison=$idMaison"><input type="button" value="Ajouter un appartement" /></a>
         
 
         <!--BOUTON POUR SUPPRIMER LA MAISON-->
         
-        <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette maison" />
+        <input class="suppr" type="button" value="Supprimer cette maison" />
         
 END;
         while($appart = $appartements->fetch_assoc()){
@@ -58,16 +59,16 @@ END;
             echo <<<END
             <!-- appart -->
             <ap>
-                <p>Appartement numero : $numAppart</p>
-                <p>Type : $typeAppart</p>
-                <p>Degre de securite : $degSecu</p>
-                <p>Degre de citoyennete : $degCitoyennete</p>
+                <h3>Appartement $typeAppart numero : $numAppart</h3>
+				<h4>Degre de securite : $degSecu</h4>
+				<h4>Degre de citoyennete : $degCitoyennete</h4>
                 
-                <a href="index.php?cible=maison&fonction=nouvellePiece&idAppart=$idAppart"><input type="button" style="background-color:lightgray" value="Ajouter une piece"/></a>
+                
+                <a href="index.php?cible=maison&fonction=nouvellePiece&idAppart=$idAppart"><input type="button" value="Ajouter une piece"/></a>
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
                 
-                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cet appartement" />
+                <input class="suppr" type="button"  value="Supprimer cet appart" />
                 
 END;
 		while($piece = $pieces->fetch_assoc()){
@@ -79,16 +80,16 @@ END;
 			
         echo<<<END
             <!-- piece -->
-            <div>
+            <piece>
                 <p>Pièce : $libellePiece</p>
                 <p>Type de pièce : $libelleTypePiece</p>
                 
-                <a href="index.php?cible=maison&fonction=nouvelAppareil&idPiece=$idPiece"><input type="button" style="background-color:lightgray" value="Ajouter une appareil" /></a>
+                <a href="index.php?cible=maison&fonction=nouvelAppareil&idPiece=$idPiece"><input type="button" value="Ajouter un appareil" /></a>
                 
 
                 <!--BOUTON POUT SUPPRIMER L APPART-->
                 
-                <input type="button" style="background-color:palevioletred; border-color:black" value="Supprimer cette piece" />
+                <input class="suppr" type="button" value="Supprimer cette piece" />
                 
 		
 
@@ -120,7 +121,7 @@ END;
             echo <<<END
                     <!--BOUTON POUR SUPPRIMER L EQUIPEMENT-->
                     
-                    <input type="submit" style="background-color:palevioletred; border-color:black" value="Supprimer cet appareil" />
+                    <input class="suppr" type="submit" value="Supprimer cet appareil" />
                     
 
                     <br>
@@ -130,7 +131,7 @@ END;
 END;
         }
         echo <<<END
-            </div>
+            </piece>
 END;
 }
         echo <<<END
@@ -139,6 +140,7 @@ END;
         }
         echo <<<END
     </maison>
+	
 END;
 }
 
@@ -147,24 +149,11 @@ END;
     
     
 echo <<<END
-
+	
     <style>
-        maison {
-            border: 5px solid teal;
-            padding: .5em;
-            margin: 30px;
-        }
+        
 
-        btnsupprma {
-            background-color: palevioletred;
-            border-color: black
-        }
 
-        ap {
-            border: 2px solid black;
-            padding: 15px;
-            margin: 10px;
-        }
 
         eq {
             border: 2px solid black;
@@ -175,17 +164,9 @@ echo <<<END
             margin-bottom: 5px;
         }
 
-        ap {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-        }
 
-        maison {
-            display: flex;
-            flex-direction: column;
-            list-style: none;
-        }
+
+
     </style>
 </body>
 END;

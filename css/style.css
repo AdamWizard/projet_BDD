@@ -5,7 +5,7 @@ body{
 	font-family: Georgia, serif;
 }
 #header{
-
+	font-family: Georgia, serif;
 	background-color:#1B1A25;
 	text-align:center;
 }
@@ -14,6 +14,7 @@ body{
 	display: inline;
 }
 #container{
+	font-family: Georgia, serif;
 	padding-top: 5px;
 	padding-bottom: 20px;
 	
@@ -30,6 +31,7 @@ body{
 				
 }
 input{
+	font-family: Georgia, serif;
 	margin-top:3px;
 	margin-bottom: 10px;
 	width: 30%;
@@ -38,10 +40,12 @@ input{
 	
 }
 label{
+	font-family: Georgia, serif;
 	display: block;
 				
 }
 button{
+	font-family: Georgia, serif;
 	font-size:25px;
 	margin-top: 10px;
 
@@ -57,28 +61,32 @@ button:hover{
 	background-color:#211E33;
 }
 #deco{
+	font-family: Georgia, serif;
 	float:right;
 	margin-right:10px;
 	margin-top:2px;
 }
 img{
+	
 	color: white;		
 	width:30px;
 	height:30px;
 }
 #profil{
+	font-family: Georgia, serif;
 	margin-right:15px;
 	margin-top:4px;
 	float:right;
 }
 a{
+	font-family: Georgia, serif;
 	color: #A20A73;
 }
 a:hover{
 	color:#7A0758;
 }
 select{
-	
+	font-family: Georgia, serif;
 	font-size:22px;
 	margin-top: 5px;
 	margin-bottom: 20px;
@@ -88,4 +96,75 @@ select{
 	border: none;
 	
 	box-shadow: 1px 1px 1px black;
+}
+maison{
+	font-family: Georgia, serif;
+	border: none;
+	border-top: 2px solid #A20A73;
+	box-shadow: 2px 2px 2px black;
+	display: flex;
+    flex-direction: column;
+    list-style: none;
+	
+	padding: 1em;
+	margin-left: 2em;
+	margin-right: 2em;
+	margin-bottom: 7em;
+
+	background-color: #25213C;
+}
+
+ap {
+	font-family: Georgia, serif;
+	background-color:#211E33;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+	border: none;
+	border-top: 2px solid #A20A73;
+	box-shadow: 2px 2px 2px black;
+    margin: 2em;
+	padding: 1em;
+}
+
+#presentation{
+	font-family: Georgia, serif;
+	padding: 2em;
+}
+piece{
+	font-family: Georgia, serif;
+	background-color:#25213C;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+	border: none;
+	border-top: 2px solid #A20A73;
+	box-shadow: 2px 2px 2px black;
+    margin: 2em;
+	padding: 1em;
+}
+
+
+input{
+	font-family: Georgia, serif;
+	font-size:25px;
+	margin-top: 10px;
+
+	
+	color: white;
+	background-color: #322D51;
+	border: none;
+	border-top: 2px solid #A20A73;
+	box-shadow: 1px 1px 1px black;
+	
+}
+input:hover{
+	background-color:#211E33;
+}
+
+input.suppr{
+	background-color:#F08080;
+}
+input.suppr:hover{
+	background-color:#7E7E7E;
 }
