@@ -119,6 +119,7 @@ END;
             $typeAppareil = $appareil['libelle'];
             $allume = $appareil['allume'];
             $consos = consoAppareil($id_appareil);
+            $emissions = emissAppareil($id_appareil);
             if($allume == 0){
                 $statut = "éteint";
             }else{
@@ -167,6 +168,17 @@ END;
                     $quantite = round($quantite,3);
                     echo <<<END
                     Consommation totale d'$ressource : $quantite (en Kilowatt ou Litres)
+                    <br>
+END;
+                }
+            }
+            while($emiss = $emissions->fetch_assoc()){
+                $substance = $emiss['nom_substance'];
+                $quantite = $emiss['total'];
+                if($quantite != NULL){
+                    $quantite = round($quantite,3);
+                    echo <<<END
+                    Emission totale de $substance : $quantite (en Kilowatt)
                     <br>
 END;
                 }
@@ -251,6 +263,7 @@ while($appareil = $appareils->fetch_assoc()){
     $typeAppareil = $appareil['libelle'];
     $allume = $appareil['allume'];
     $consos = consoAppareil($id_appareil);
+    $emissions = emissAppareil($id_appareil);
     if($allume == 0){
         $statut = "éteint";
     }else{
@@ -299,6 +312,17 @@ END;
             $quantite = round($quantite,3);
             echo <<<END
             Consommation totale d'$ressource : $quantite (en Kilowatt ou Litres)
+            <br>
+END;
+        }
+    }
+    while($emiss = $emissions->fetch_assoc()){
+        $substance = $emiss['nom_substance'];
+        $quantite = $emiss['total'];
+        if($quantite != NULL){
+            $quantite = round($quantite,3);
+            echo <<<END
+            Emission totale de $substance : $quantite (en Kilowatt)
             <br>
 END;
         }
