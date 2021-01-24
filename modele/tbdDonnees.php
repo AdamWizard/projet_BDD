@@ -34,8 +34,14 @@ function consoAppareil($idAppareil){
     return $result;
 }
 
+function emissAppareil($idAppareil){
+    $result = mysqli_query($_SESSION['bdd'],"SELECT nom_substance,sum((fin_fonction-debut_fonction)*conso) as total FROM Appareil inner join Fonctionner on Appareil.id_appareil = Fonctionner.id_appareil inner join Type_appareil on Appareil.id_type_appareil = Type_appareil.id_type_appareil inner join Produire on Produire.id_type_appareil = Type_appareil.id_type_appareil inner join Substance on Substance.id_substance = Produire.id_substance where Appareil.id_appareil = $idAppareil group by Substance.id_substance");
+    return $result;
+}
+
 function listeAppartsLoc(){
     $idConnect = $_SESSION['id_connect'];
     $result = mysqli_query($_SESSION['bdd'],"Select Appartement.id_appartement as idApp,numero_appart,Degre_citoyennete.libelle as citoyLib,Type_appartement.libelle as typeApLib,Degre_securite.libelle as secuLib from Appartement inner join Degre_citoyennete on Appartement.id_deg_cit = Degre_citoyennete.id_deg_cit inner join Type_appartement on Appartement.id_type_appart = Type_appartement.id_type_appart inner join Degre_securite on Appartement.id_secu = Degre_securite.id_secu inner join Louer on Louer.id_appartement = Appartement.id_appartement where id_utilisateur = $idConnect");
     return $result;
 }
+
