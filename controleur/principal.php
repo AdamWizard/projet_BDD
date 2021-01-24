@@ -19,6 +19,9 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 
 switch ($function) {
     case 'deconnexion':
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
         unset($_SESSION['id_connect']);
         $vue = "connexion";
         $title = "Connexion";
@@ -29,12 +32,20 @@ switch ($function) {
             $vue = "connexion";
             $title = "Connexion";
             if(isset($_POST['mail']) && isset($_POST['mdp'])){
-                $idUser = connexion($_POST['mail'],$_POST['mdp']);
-                if($idUser!=0){
-                    $_SESSION['id_connect']=$idUser;
-                    $vue = "tableau_de_bord";
-                    $title = "Tableau";
-                    //tableau de bord
+                $result = connexion($_POST['mail'],$_POST['mdp']);
+                if(!is_int($result)){
+                    $result = $result->fetch_assoc();
+                    $idUser = $result['id_utilisateur'];
+                    $admin = $result['admin'];
+                    if($idUser!=0){
+                        $_SESSION['id_connect']=$idUser;
+                        if($admin == 1){
+                            $_SESSION['admin']=1;
+                        }
+                        $vue = "tableau_de_bord";
+                        $title = "Tableau";
+                        //tableau de bord
+                    }
                 }
             }
         }else{

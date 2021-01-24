@@ -26,7 +26,7 @@ echo <<<END
 		</form>
 		
 		<h2>Pas encore de compte ? <a href="index.php?cible=inscription&fonction=afficher">Inscrivez-vous</a></h2>
-		
+		<p>Vous pouvez utiliser les comptes : admin admin ainsi que damien@hotmail.com damien pour vos tests</p>
 	</div>
 </body>
 

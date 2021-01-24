@@ -7,10 +7,10 @@ function connexion(string $mail, string $mdp){
     $result1=mysqli_query($_SESSION['bdd'], $query1);
     $row = $result1->fetch_assoc()['count'];
     if($row==1){
-        $query2 = "SELECT id_utilisateur FROM Utilisateur where mail like '$mail' and mdp like '$mdp'";
+        $query2 = "SELECT id_utilisateur,admin FROM Utilisateur where mail like '$mail' and mdp like '$mdp'";
         $result2 = mysqli_query($_SESSION['bdd'], $query2);
-        $row2 = $result2->fetch_assoc()['id_utilisateur'];
-        return $row2;
+        
+        return $result2;
     }else{
         return 0;
     }
