@@ -21,7 +21,7 @@ echo <<<END
 
 <form method="POST" action="">
     <div>
-            <label for="idAppart">Code Postal</label>
+            <label for="idAppart">Adresse</label>
             <select name="idAppart" id="idAppart">
 END;
 ;
