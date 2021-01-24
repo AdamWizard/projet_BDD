@@ -13,7 +13,7 @@ echo <<<END
 		
 		<a id="deco" href="index.php?cible=principal&fonction=deconnexion"><img id="deco" src="deco.png" title="Se déconnecter"></a>
 		
-		<a href=""><img id="profil" src="profil.png" title="Profil"></a>
+		
 	</div>
 
 <div id="container">
@@ -47,7 +47,7 @@ echo <<<END
 
 	
 	
-    <a href="index.php">Annuler (revenir au tableau de bord)</a>
+    <h2><a href="index.php">Annuler</a></h2>
 	
 END;
 ;

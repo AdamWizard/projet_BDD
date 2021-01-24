@@ -101,7 +101,10 @@ maison{
 	font-family: Georgia, serif;
 	border: none;
 	border-top: 2px solid #A20A73;
+	border-left: 2px solid #A20A73;
+	
 	box-shadow: 2px 2px 2px black;
+	
 	display: flex;
     flex-direction: column;
     list-style: none;
@@ -122,6 +125,7 @@ ap {
     list-style: none;
 	border: none;
 	border-top: 2px solid #A20A73;
+	border-left: 2px solid #A20A73;
 	box-shadow: 2px 2px 2px black;
     margin: 2em;
 	padding: 1em;
@@ -139,6 +143,7 @@ piece{
     list-style: none;
 	border: none;
 	border-top: 2px solid #A20A73;
+	border-left: 2px solid #A20A73;
 	box-shadow: 2px 2px 2px black;
     margin: 2em;
 	padding: 1em;
@@ -168,3 +173,10 @@ input.suppr{
 input.suppr:hover{
 	background-color:#7E7E7E;
 }
+eq {
+			font-family: Georgia, serif;
+			background-color:#211E33;
+            border: 1px solid black;
+            padding: .5em;
+            margin: 2em;
+        }

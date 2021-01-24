@@ -13,7 +13,8 @@ include("modele/nouvelleMaison.php");
 include("modele/nouvelAppart.php");
 include("modele/nouvellePiece.php");
 include("modele/nouvelAppareil.php");
-
+include("modele/fonctionner.php");
+include("modele/louer.php");
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
     $function = "accueil";
@@ -45,8 +46,8 @@ switch ($function) {
             $title = "Connexion";
         }else{
             //test si les champs sont set
-            if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison'])){
-                nouvel_appart($_POST['NumAppart'], 1, $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
+            if(isset($_POST['NumAppart']) && isset($_POST['typeApp']) && isset($_POST['secuApp']) && isset($_POST['idMaison']) && isset($_POST['citoyApp'])){
+                nouvel_appart($_POST['NumAppart'], $_POST['citoyApp'], $_POST['typeApp'], $_POST['secuApp'], $_POST['idMaison']);
                 $vue = "tableau_de_bord";
                 $title = "Tableau";
             }else{
@@ -75,18 +76,66 @@ switch ($function) {
         if(!(isset($_SESSION['id_connect']))){
                 $vue = "connexion";
                 $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_POST['nomPiece']) && isset($_POST['typePiece']) && isset($_POST['idAppart'])){
+                nouvelle_Piece($_POST['nomPiece'], $_POST['idAppart'], $_POST['typePiece']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
             }else{
-                //test si les champs sont set
-                if(isset($_POST['nomPiece']) && isset($_POST['typePiece']) && isset($_POST['idAppart'])){
-                    nouvelle_Piece($_POST['nomPiece'], $_POST['idAppart'], $_POST['typePiece']);
-                    $vue = "tableau_de_bord";
-                    $title = "Tableau";
-                }else{
-                    $vue = "ajout_piece";
-                    $title = "Ajout piece";
-                }
+                $vue = "ajout_piece";
+                $title = "Ajout piece";
             }
-            break;
+        }
+        break;
+    case 'allumer':
+        if(!(isset($_SESSION['id_connect']))){
+                $vue = "connexion";
+                $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_GET['idAppareil'])){
+                allumer($_GET['idAppareil']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }
+        }
+        break;
+    case 'eteindre':
+        if(!(isset($_SESSION['id_connect']))){
+            $vue = "connexion";
+            $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_GET['idAppareil'])){
+                eteindre($_GET['idAppareil']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }
+        }
+        break;
+    case 'louer':
+        if(!(isset($_SESSION['id_connect']))){
+            $vue = "connexion";
+            $title = "Connexion";
+        }else{
+            //test si les champs sont set
+            if(isset($_POST['nbHabs']) && isset($_POST['idAppart'])){
+                nouvelleLoc($_POST['idAppart'], $_POST['nbHabs']);
+                $vue = "tableau_de_bord";
+                $title = "Tableau";
+            }else{
+                $vue = "louer_appartement";
+                $title = "Location";
+            }
+        }
+    break;
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";

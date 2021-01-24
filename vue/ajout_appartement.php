@@ -2,6 +2,7 @@
 //include("modele/nouvelAppart.php");
 $typesAppart = getTypeAppart();
 $secusAppart = getSecu();
+$citoyAppart = getCitoy();
 $idMaison = $_GET['idMaison'];
 echo <<<END
 <head>
@@ -15,7 +16,7 @@ echo <<<END
 		
 		<a id="deco" href="index.php?cible=principal&fonction=deconnexion"><img id="deco" src="deco.png" title="Se déconnecter"></a>
 		
-		<a href=""><img id="profil" src="profil.png" title="Profil"></a>
+		
 	</div>
 
 <div id="container">
@@ -45,6 +46,18 @@ END;
 ;
 while($secu = $secusAppart->fetch_assoc()){
     echo "<option value=".$secu['id_secu'].">".$secu['libelle']."</option>";
+}
+echo <<<END
+			</select>
+		</div>
+		<div>
+            <label for="idCitoyApp">Citoyenneté de l'appartement</label>
+            <select name="citoyApp" id="idCitoyApp">
+
+END;
+;
+while($citoy = $citoyAppart->fetch_assoc()){
+    echo "<option value=".$citoy['id_deg_cit'].">".$citoy['libelle']."</option>";
 }
 echo <<<END
 			</select>

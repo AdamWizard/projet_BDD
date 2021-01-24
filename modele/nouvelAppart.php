@@ -7,6 +7,11 @@ function getSecu(){
     return $result;
 }
 
+function getCitoy(){
+    $result = mysqli_query($_SESSION['bdd'],"Select id_deg_cit,libelle from Degre_citoyennete");
+    return $result;
+}
+
 function getTypeAppart(){
     $result = mysqli_query($_SESSION['bdd'],"Select id_type_appart,libelle from Type_appartement");
     return $result;
